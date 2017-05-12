@@ -55,12 +55,14 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Objects;
 
 
 //import com.google.android.gms.location.LocationListener;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,RequestCallback<String> {
 
+    private final int  LOCATIONPERMISSION = 0;
     private GoogleMap mMap;
     private GPSTracker gpsTracker;
     private Location mLocation;
@@ -94,15 +96,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .isProviderEnabled(LocationManager.GPS_PROVIDER);
 
 
+
         if (!enabled)
             showAlertWindow();
 
         if (enabled) {
-            gpsTracker = new GPSTracker(this.getApplicationContext());
-            mLocation = gpsTracker.getLocation();
-            longitude = mLocation.getLongitude();
-            latitude = mLocation.getLatitude();
-
+         //   gpsTracker = new GPSTracker(this.getApplicationContext());
+          //  mLocation = gpsTracker.getLocation();
+         //   longitude = mLocation.getLongitude();
+           // latitude = mLocation.getLatitude();
+longitude = 52;
+            latitude = 21;
 
             setContentView(R.layout.activity_maps);
 
@@ -217,12 +221,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Toolbar mToolbar = (Toolbar)findViewById(R.id.button3);
 
         // Button mBut = (Button) findViewById(R.id.button2);
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
-        Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
+          Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
+          /*  Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
 
         pokazStacje.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                @Override
+                public void onClick(View v) {
 
 
                 download.execute(url, "GET");
@@ -234,7 +238,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
             }
-        });
+        });*/
         setSupportActionBar(mToolbar);
      //   tekst = (EditText) findViewById(R.id.editText);
      //   przycisk = (Button) findViewById(R.id.button2);
@@ -333,13 +337,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATIONPERMISSION);
+
         mMap = googleMap;
         float zoom = 15;
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             return;
         }
-        mMap.setMyLocationEnabled(true);
+    //    mMap.setMyLocationEnabled(true);
 
         final LatLng polozenie = new LatLng(latitude, longitude);
       // mMap.addMarker(new MarkerOptions().position(polozenie).title("Marker here"));
@@ -362,6 +369,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             });
         }
+
+
     }
 
 
@@ -480,6 +489,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return czyPokazacPrompt;
             }
         }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(requestCode == LOCATIONPERMISSION){
+            if(permissions.length == 1 && Objects.equals(permissions[0], Manifest.permission.ACCESS_FINE_LOCATION) &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                mMap.setMyLocationEnabled(true);
+
+            }
+        }
+
+    }
 
     }
 

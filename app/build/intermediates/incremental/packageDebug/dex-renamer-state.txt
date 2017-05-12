@@ -1,7 +1,7 @@
-#Wed May 10 20:33:12 CEST 2017
-base.0=C\:\\Users\\User\\Desktop\\androidTut\\Proba3\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_d452084221db07a9353b0aa7577d863665ff4827
+#Fri May 12 17:50:43 CEST 2017
+base.0=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_023960741b71fd5a2bea69a69d4034e4ef274848
 renamed.1=classes.dex
 renamed.0=classes2.dex
-file.1=C\:\\Users\\User\\Desktop\\androidTut\\Proba3\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_a41729a8fabcdd3557e33a0a78b5ebeac6265d08\\classes.dex
-base.1=C\:\\Users\\User\\Desktop\\androidTut\\Proba3\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_a41729a8fabcdd3557e33a0a78b5ebeac6265d08
-file.0=C\:\\Users\\User\\Desktop\\androidTut\\Proba3\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_d452084221db07a9353b0aa7577d863665ff4827\\classes.dex
+file.1=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_efc5b7beebf60cc37e56b5c917403245f4cd542a\\classes.dex
+base.1=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_efc5b7beebf60cc37e56b5c917403245f4cd542a
+file.0=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_023960741b71fd5a2bea69a69d4034e4ef274848\\classes.dex
