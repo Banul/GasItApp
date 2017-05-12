@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Proba3</string>
+    <string name="title_activity_maps">GasItApp</string>
+    <string name="Tytul">GasItApp</string>
+    <string name="geolocalizator">Tryb sledzenia</string>
+    <string name="normal_map">Mapa normalna</string>
+    <string name="terrain_map">Mapa terenowa</string>
+    <string name="satellite_map">Mapa satelitarna</string>
+    <string name="Hybrid">Mapa hybrydowa</string>
+</resources>

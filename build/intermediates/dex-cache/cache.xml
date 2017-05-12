@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\User\.android\build-cache\cfa4ee51681fed4d2431b45127ade8a7a76cf3fc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\pre-dexed\debug\classes_a7eb3a126d2aa65f1a5eb399f5071c0a5834456e.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b9cbbd8a30d7605523d07b051c83da634c249ea">
+        <dex dex="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d452084221db07a9353b0aa7577d863665ff4827\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a41729a8fabcdd3557e33a0a78b5ebeac6265d08\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\User\.android\build-cache\c726844a2fddb5d5ad785a784b0523c5034e5187\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\pre-dexed\debug\classes_a750b40362c344e8ba022537d06c8aeb5ad409f3.jar" />
+    </item>
+
+</items>
