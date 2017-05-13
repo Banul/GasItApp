@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="21993431b410d985f177f014c74b28803953ec43">
+        sha1="9ced98494d47df2a5be77349d07a989309f0f5c0">
         <dex dex="D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_023960741b71fd5a2bea69a69d4034e4ef274848\classes.dex" />
     </item>
     <item
@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
         <dex dex="D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_efc5b7beebf60cc37e56b5c917403245f4cd542a\classes.dex" />
     </item>
 

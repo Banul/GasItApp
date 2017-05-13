@@ -1,41 +1,31 @@
 package com.example.user.proba3;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.user.proba3.dataModel.Address;
+import com.example.user.proba3.dataModel.Gas;
+import com.example.user.proba3.dataModel.GasStation;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.List;
-
-import static com.example.user.proba3.R.id.przyciskPlus;
-import static com.example.user.proba3.R.id.spinner;
-import static com.example.user.proba3.R.id.tekst;
 
 /**
  * Created by User on 2017-04-24.
@@ -50,7 +40,6 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
     private ImageButton przyciskMinus;
     private ImageButton przyciskPlus;
     private EditText tekst;
-    DownloadRequestTask download = new DownloadRequestTask(this);
     CustomAdapter adapter;
     CustomAdapterStacje adapterStacje;
     public ArrayList<ItemData> CustomListViewValuesArr = new ArrayList<ItemData>();
@@ -155,8 +144,14 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
                         String cena = String.valueOf(tekst.getText());
                         Double cenaD = Double.valueOf(cena);
 
-                        GasStation stacjaBenz = new GasStation(nazwaStacji,polozenie.latitude,polozenie.longitude);
+                        //todo trzeba wyciągnąć adres stacji i przekazać w parametrach, tymczasowy hard code
                         Gas gaz = new Gas(nazwaPaliwa,cenaD);
+                        ArrayList<Gas> gases = new ArrayList<Gas>();
+                        gases.add(gaz);
+                        Address address = new Address("Kappa",1,"waw","23-504","wawieckie","polackie");
+
+                        GasStation stacjaBenz = new GasStation(nazwaStacji,"Orlen",polozenie.latitude,polozenie.longitude,address,gases);
+
 
                         JSONObject stacj = new JSONObject();
                         JSONObject gas = new JSONObject();
