@@ -161,13 +161,17 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
                         String nazwaPaliwa = wybranePaliwo.getText();
                         String cena = String.valueOf(tekst.getText());
                         Double cenaD = Double.valueOf(cena);
-<<<<<<< HEAD
-                        Gas paliwo = new Gas(nazwaPaliwa,cenaD);
+
+                       Gas gaz = new Gas(nazwaPaliwa,cenaD);
                         if (polozenie!=null) {
                             LatLng miejsceDoDodaniaDoListy = new LatLng(polozenie.latitude, polozenie.longitude); //tu wywala
                             ListaNaStacjeDoDodaniaNaMape.add(miejsceDoDodaniaDoListy);
-                            GasStation stacjaBenz = new GasStation(nazwaStacji, polozenie.latitude, polozenie.longitude, paliwo);
-                            Gas gaz = new Gas(nazwaPaliwa, cenaD);
+                            ArrayList<Gas> gases = new ArrayList<Gas>();
+                        gases.add(gaz);
+                        Address address = new Address("Kappa",1,"waw","23-504","wawieckie","polackie");
+                          
+
+                          GasStation stacjaBenz = new GasStation(nazwaStacji,"Orlen",polozenie.latitude,polozenie.longitude,address,gases);
 
                             JSONObject stacj = new JSONObject();
                             JSONObject gas = new JSONObject();
@@ -177,26 +181,7 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-=======
 
-                        //todo trzeba wyciągnąć adres stacji i przekazać w parametrach, tymczasowy hard code
-                        Gas gaz = new Gas(nazwaPaliwa,cenaD);
-                        ArrayList<Gas> gases = new ArrayList<Gas>();
-                        gases.add(gaz);
-                        Address address = new Address("Kappa",1,"waw","23-504","wawieckie","polackie");
-
-                        GasStation stacjaBenz = new GasStation(nazwaStacji,"Orlen",polozenie.latitude,polozenie.longitude,address,gases);
-
-
-                        JSONObject stacj = new JSONObject();
-                        JSONObject gas = new JSONObject();
-                        try {
-                            stacj = stacjaBenz.toJSON();
-                            gas = gaz.toJSON();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
->>>>>>> 12fa1def95abecfe799a4cd4c181fd37aa45152a
-                        }
 
 
 
