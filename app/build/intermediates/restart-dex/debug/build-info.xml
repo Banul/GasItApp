@@ -6,22 +6,22 @@
     density="hdpi"
     format="10"
     plugin-version="2.3.0"
-    timestamp="1494527565194"
+    timestamp="1494681151276"
     token="3168733773708112207"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="807" />
+        duration="611" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="83" />
+        duration="35" />
     <task
         name="verifier"
-        duration="23" />
+        duration="16" />
 
     <artifact
         location="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
@@ -32,7 +32,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1494525500622"
+        timestamp="1494675772864"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
@@ -73,7 +73,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1494527131626"
+        timestamp="1494680509297"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\User\Desktop\androidTut\Proba3\app\build\outputs\apk\app-debug.apk"
@@ -81,7 +81,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1494527565194"
+        timestamp="1494681151276"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\User\Desktop\androidTut\Proba3\app\build\intermediates\split-apk\debug\slices\slice_7.apk"

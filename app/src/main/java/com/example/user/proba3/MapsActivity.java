@@ -50,6 +50,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -59,7 +60,7 @@ import java.util.ListIterator;
 
 //import com.google.android.gms.location.LocationListener;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback,RequestCallback<String> {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, RequestCallback<String> {
 
     private GoogleMap mMap;
     private GPSTracker gpsTracker;
@@ -74,7 +75,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ProgressDialog dialog;
     private EditText tekst;
     private Button przycisk;
-    private List<LatLng> lista;
+    private ArrayList<LatLng> lista = new ArrayList<LatLng>();
     private boolean czyPokazacPrompt = false;
     private boolean czyPromptZostalpokazany = false;
     private Location lokalizacjaStacjiNaKtorejJestesmy;
@@ -82,7 +83,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     DownloadRequestTask download = new DownloadRequestTask(this);
     private boolean czyTrybSledzenia = true;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
-
 
 
     @Override
@@ -98,15 +98,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             showAlertWindow();
 
         if (enabled) {
+
             gpsTracker = new GPSTracker(this.getApplicationContext());
             mLocation = gpsTracker.getLocation();
-            longitude = mLocation.getLongitude();
-            latitude = mLocation.getLatitude();
+
+                longitude = mLocation.getLongitude();
+                latitude = mLocation.getLatitude();
+
+
 
 
             setContentView(R.layout.activity_maps);
-
-
 
 
             // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -137,7 +139,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 double longitude = location.getLongitude();
                 LatLng latLng = new LatLng(latitude, longitude);
                 now = mMap.addMarker(new MarkerOptions().position(latLng));
-                if (czyTrybSledzenia){
+                if (czyTrybSledzenia) {
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                     mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                 }
@@ -146,7 +148,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 nasza.setLatitude(latLng.latitude);
                 nasza.setLongitude(latLng.longitude);
 
-                if (lokalizacjaStacjiNaKtorejJestesmy!=null && czyPromptZostalpokazany) {
+                if (lokalizacjaStacjiNaKtorejJestesmy != null && czyPromptZostalpokazany) {
                     double dystans = nasza.distanceTo(lokalizacjaStacjiNaKtorejJestesmy); //dystans w metrach
 
                     if (dystans > 250) {
@@ -160,20 +162,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     long czasPrompt = System.currentTimeMillis();
 
                     KlasaSprawdzajacaCzyPokazacPrompt obj = new KlasaSprawdzajacaCzyPokazacPrompt(czas, latLng);
-
-
+                    obj.execute();
 
 
                     if (czyPokazacPrompt && !czyPromptZostalpokazany) {
 
-                        LatLng polo = new LatLng(latitude,longitude);
-                        DialogDodajStacjeMarker dialog2 = new DialogDodajStacjeMarker(polo);
+                        LatLng polo = new LatLng(latitude, longitude);
+                        DialogDodajStacjeMarker dialog2 = new DialogDodajStacjeMarker();
                         dialog2.show(getFragmentManager(), "my_dialog");
                         czyPromptZostalpokazany = true;
 
                     }
-
-
 
 
                 }
@@ -220,24 +219,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
         Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
 
-        pokazStacje.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                download.execute(url, "GET");
-
-                Log.d("data70","data70");
-
-
-                Log.d("data71","data71");
-
-
-            }
-        });
+//        pokazStacje.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                download.execute(url, "GET");
+//
+//                Log.d("data70", "data70");
+//
+//
+//                Log.d("data71", "data71");
+//
+//
+//            }
+//        });
         setSupportActionBar(mToolbar);
-     //   tekst = (EditText) findViewById(R.id.editText);
-     //   przycisk = (Button) findViewById(R.id.button2);
+        //   tekst = (EditText) findViewById(R.id.editText);
+        //   przycisk = (Button) findViewById(R.id.button2);
 
     }
 
@@ -253,7 +252,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.lokalizator:
-                czyTrybSledzenia=!czyTrybSledzenia;
+                czyTrybSledzenia = !czyTrybSledzenia;
 
 //                if (tekst.isShown()) {
 //                    tekst.setVisibility(View.INVISIBLE);
@@ -262,7 +261,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //                } else if (!tekst.isShown()) {
 //                    tekst.setVisibility(View.VISIBLE);
 //                    przycisk.setVisibility(View.VISIBLE);
-
 
 
 //                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -335,6 +333,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mMap = googleMap;
         float zoom = 15;
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             return;
@@ -352,11 +351,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 @Override
                 public void onMapLongClick(LatLng latLng) {
 
-                    DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(polozenie);
+                    DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng,lista, mMap);
                     dialog.show(getFragmentManager(), "my_dialog");
-                    pierwszy = mMap.addMarker(new MarkerOptions().position(latLng));
-                    lista = new ArrayList<LatLng>();
-                    lista.add(latLng);
+
+  //                  mMap.addMarker(new MarkerOptions().position(latLng));
+//
+//                    lista = new ArrayList<LatLng>();
+//                    lista.add(latLng);
+
                     Log.d("lista",lista.toString());
 
                 }
@@ -417,7 +419,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         public boolean SprawdzCzyJestesNaStacji(LatLng latLng)
         {
-
+            Log.d("sprawdzStacje","SprawdzStacje");
             boolean zwroc = false;
             Location lokacjaNasza = new Location("");
             lokacjaNasza.setLongitude(latLng.longitude);
@@ -439,9 +441,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
 
             }
-
-
-
             return zwroc;
         }
 
@@ -469,8 +468,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             protected Boolean doInBackground(Void... params) {
 
+                Log.d("kebabNaCienkim","kebabNaCienkim");
                 while (System.currentTimeMillis()-_czas < 10000)
                 {
+                    Log.d("Sprawdz","Sprawdzam");
                     if (SprawdzCzyJestesNaStacji(_polozenie) == false)
                         break;
                     else {

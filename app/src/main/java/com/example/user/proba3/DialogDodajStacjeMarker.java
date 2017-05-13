@@ -22,7 +22,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,6 +48,7 @@ import static com.example.user.proba3.R.id.tekst;
 
 public class DialogDodajStacjeMarker extends DialogFragment implements AdapterView.OnItemSelectedListener,RequestCallback<String> {
 
+    private GoogleMap mapa;
     private LatLng polozenie;
     private Spinner spinner;
     private Spinner spinner2;
@@ -55,15 +61,20 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
     CustomAdapterStacje adapterStacje;
     public ArrayList<ItemData> CustomListViewValuesArr = new ArrayList<ItemData>();
     public ArrayList<ItemData> ListaNaStacje = new ArrayList<ItemData>();
+    public ArrayList<LatLng> ListaNaStacjeDoDodaniaNaMape = new ArrayList<LatLng>();
+    private boolean CzyMoznaDodacZnacznikNaMape = false;
 
     public DialogDodajStacjeMarker()
     {
 
     }
 
-    public DialogDodajStacjeMarker(LatLng ltlng)
+    public DialogDodajStacjeMarker(LatLng ltlng, ArrayList listStac, GoogleMap mapka)
+
     {
+        this.mapa = mapka;
         this.polozenie = ltlng;
+        this.ListaNaStacjeDoDodaniaNaMape = listStac;
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -77,6 +88,7 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
         przyciskMinus = (ImageButton) view.findViewById(R.id.przyciskMinus);
         przyciskPlus= (ImageButton) view.findViewById(R.id.przyciskPlus);
         tekst = (EditText) view.findViewById(R.id.tekst);
+
 
         przyciskMinus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,27 +158,33 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        // sign in the user ...
                       //  ArrayList<String> lista = new ArrayList<String>();
+                       // Log.d("okok","okok");
+                        if (polozenie!=null) {
+                            mapa.addMarker(new MarkerOptions().position(polozenie));
+                        }
                         ItemData wybranaStacja = (ItemData) spinner.getSelectedItem();
                         String nazwaStacji = wybranaStacja.getText();
                         ItemData wybranePaliwo = (ItemData) spinner2.getSelectedItem();
                         String nazwaPaliwa = wybranePaliwo.getText();
                         String cena = String.valueOf(tekst.getText());
                         Double cenaD = Double.valueOf(cena);
+                        Gas paliwo = new Gas(nazwaPaliwa,cenaD);
+                        if (polozenie!=null) {
+                            LatLng miejsceDoDodaniaDoListy = new LatLng(polozenie.latitude, polozenie.longitude); //tu wywala
+                            ListaNaStacjeDoDodaniaNaMape.add(miejsceDoDodaniaDoListy);
+                            GasStation stacjaBenz = new GasStation(nazwaStacji, polozenie.latitude, polozenie.longitude, paliwo);
+                            Gas gaz = new Gas(nazwaPaliwa, cenaD);
 
-                        GasStation stacjaBenz = new GasStation(nazwaStacji,polozenie.latitude,polozenie.longitude);
-                        Gas gaz = new Gas(nazwaPaliwa,cenaD);
-
-                        JSONObject stacj = new JSONObject();
-                        JSONObject gas = new JSONObject();
-                        try {
-                            stacj = stacjaBenz.toJSON();
-                            gas = gaz.toJSON();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            JSONObject stacj = new JSONObject();
+                            JSONObject gas = new JSONObject();
+                            try {
+                                stacj = stacjaBenz.toJSON();
+                                gas = gaz.toJSON();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
-
 
 
 
@@ -180,6 +198,8 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
                 })
                 .setNegativeButton("Wyjdz", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.dismiss();
                     }
                 });
         return builder.create();
@@ -195,6 +215,15 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
 
     }
 
+    public boolean ZwrocCzyMoznaPostawicZnacznikNaMape()
+    {
+        return this.CzyMoznaDodacZnacznikNaMape;
+    }
+
+    public void UstawCzyMoznaPostawicZnacznikNaMape(boolean b)
+    {
+        this.CzyMoznaDodacZnacznikNaMape = b;
+    }
     public void setListData() {
             final ItemData sched = new ItemData();
             final ItemData sched1 = new ItemData();
