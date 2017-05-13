@@ -1,4 +1,4 @@
-#Sat May 13 14:20:50 CEST 2017
+#Sat May 13 15:59:07 CEST 2017
 base.0=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2
 renamed.0=classes.dex
 file.0=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2\\classes.dex

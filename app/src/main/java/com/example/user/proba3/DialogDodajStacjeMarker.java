@@ -16,16 +16,15 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-<<<<<<< HEAD
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-=======
+
 import com.example.user.proba3.dataModel.Address;
 import com.example.user.proba3.dataModel.Gas;
 import com.example.user.proba3.dataModel.GasStation;
->>>>>>> 12fa1def95abecfe799a4cd4c181fd37aa45152a
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -192,7 +191,7 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
                         //wyślij tę listę do API
 
                     }
-                })
+                }})
                 .setNegativeButton("Wyjdz", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 

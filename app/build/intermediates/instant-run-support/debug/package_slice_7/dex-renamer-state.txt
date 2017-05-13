@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-#Sat May 13 15:12:34 CEST 2017
-base.0=C\:\\Users\\User\\Desktop\\androidTut\\Proba3\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_7
-=======
-#Sat May 13 14:20:50 CEST 2017
+#Sat May 13 15:59:07 CEST 2017
 base.0=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_7
->>>>>>> 12fa1def95abecfe799a4cd4c181fd37aa45152a
 renamed.0=classes.dex
 file.0=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_7\\classes.dex

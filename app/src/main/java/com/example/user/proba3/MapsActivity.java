@@ -101,21 +101,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             showAlertWindow();
 
         if (enabled) {
-<<<<<<< HEAD
+
 
             gpsTracker = new GPSTracker(this.getApplicationContext());
             mLocation = gpsTracker.getLocation();
 
                 longitude = mLocation.getLongitude();
                 latitude = mLocation.getLatitude();
-=======
-         //   gpsTracker = new GPSTracker(this.getApplicationContext());
-          //  mLocation = gpsTracker.getLocation();
-         //   longitude = mLocation.getLongitude();
-           // latitude = mLocation.getLatitude();
-longitude = 52;
-            latitude = 21;
->>>>>>> 12fa1def95abecfe799a4cd4c181fd37aa45152a
+
 
 
 
@@ -231,7 +224,7 @@ longitude = 52;
           Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
           /*  Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
 
-<<<<<<< HEAD
+
 //        pokazStacje.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -247,23 +240,8 @@ longitude = 52;
 //
 //            }
 //        });
-=======
-        pokazStacje.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+*/
 
-
-                download.execute(url, "GET");
-
-                Log.d("data70","data70");
-
-
-                Log.d("data71","data71");
-
-
-            }
-        });*/
->>>>>>> 12fa1def95abecfe799a4cd4c181fd37aa45152a
         setSupportActionBar(mToolbar);
         //   tekst = (EditText) findViewById(R.id.editText);
         //   przycisk = (Button) findViewById(R.id.button2);
@@ -340,15 +318,7 @@ longitude = 52;
         Log.d("lokacja", "stop");
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+
 
     protected void onDestroy() {
         super.onDestroy();
