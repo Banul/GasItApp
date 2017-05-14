@@ -38,7 +38,7 @@ import java.util.ArrayList;
  * Created by User on 2017-04-24.
  */
 
-public class DialogDodajStacjeMarker extends DialogFragment implements AdapterView.OnItemSelectedListener,RequestCallback<String> {
+public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterView.OnItemSelectedListener,RequestCallback<String> {
 
     private GoogleMap mapa;
     private LatLng polozenie;

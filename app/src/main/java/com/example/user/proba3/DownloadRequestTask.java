@@ -18,7 +18,7 @@ package com.example.user.proba3;
 
 public class DownloadRequestTask extends AsyncTask<String, Void, String> {
 
-    RequestCallback<String> mCallback;
+    public RequestCallback<String> mCallback;
 
     public DownloadRequestTask(RequestCallback<String> callback) {
         mCallback = callback;

@@ -22,6 +22,11 @@ public class GasStation {
     // Lista paliw oferowanych na stacji
     ArrayList<Gas> gases;
 
+    public GasStation()
+    {
+
+    }
+
     public GasStation(String stationName, String ownerName, double latitude, double longitude, Address address, ArrayList<Gas> gases) {
         this.stationName = stationName;
         this.ownerName = ownerName;
@@ -39,7 +44,7 @@ public class GasStation {
         return ownerName;
     }
 
-    public double getLatitide() {
+    public double getLatitiude() {
         return latitide;
     }
 
@@ -51,18 +56,20 @@ public class GasStation {
 //    }
 
     public static GasStation parseJSON(JSONObject jsonObject) throws JSONException {
-        String stationName = jsonObject.getString("station-name");
-        String ownerName = jsonObject.getString("station-owner");
+        JSONArray entity = jsonObject.getJSONArray("entities");
+        String stationName = entity.getJSONObject(0).getString("name");
+        String ownerName = entity.getJSONObject(0).getString("owner");
         ArrayList<Gas> gases = new ArrayList<>();
-        JSONArray gasesArray = jsonObject.getJSONArray("gases");
+        JSONArray gasesArray = entity.getJSONObject(0).getJSONArray("gases");
         for(int i = 0; i<gasesArray.length(); i++) {
             gases.add(Gas.parseJSON(gasesArray.getJSONObject(i)));
         }
-        JSONObject locationJSON = jsonObject.getJSONObject("location");
+        JSONObject locationJSON = entity.getJSONObject(0).getJSONObject("location");
         double latitude = locationJSON.getDouble("latitude");
         double longitude = locationJSON.getDouble("longitude");
-        JSONObject addressJSON = jsonObject.getJSONObject("adr");
-        Address address = Address.parseJSON(addressJSON);
+      //  JSONObject addressJSON = jsonObject.getJSONObject("adr");                         //todo zastanowić się nad strukturą, co powinna posiadać klasa GasStation
+       // Address address = Address.parseJSON(addressJSON);
+        Address address = new Address();
         return new GasStation(stationName, ownerName, latitude, longitude, address, gases);
     }
     public JSONObject toJSON() throws JSONException {

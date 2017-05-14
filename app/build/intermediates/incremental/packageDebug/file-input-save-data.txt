@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat May 13 15:59:08 CEST 2017
+#Mon May 15 00:40:18 CEST 2017
 210.set=ANDROID_RESOURCE
 282.file=D\:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png
 14.set=ANDROID_RESOURCE

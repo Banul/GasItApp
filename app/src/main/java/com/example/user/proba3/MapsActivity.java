@@ -39,6 +39,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
+import com.example.user.proba3.dataModel.GasStation;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -48,6 +49,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -82,9 +86,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private boolean czyPromptZostalpokazany = false;
     private Location lokalizacjaStacjiNaKtorejJestesmy;
     private Spinner spinner;
-    DownloadRequestTask download = new DownloadRequestTask(this);
+
     private boolean czyTrybSledzenia = true;
-    String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
+    String url = "https://apibaas-trial.apigee.net/gasitapp/gasitapp/stations/737137b7-2d07-11e7-9fee-0ad881f403bf";
 
 
     @Override
@@ -222,25 +226,32 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Button mBut = (Button) findViewById(R.id.button2);
           Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
-          /*  Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
+            Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
 
 
-//        pokazStacje.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//                download.execute(url, "GET");
-//
-//                Log.d("data70", "data70");
-//
-//
-//                Log.d("data71", "data71");
-//
-//
-//            }
-//        });
-*/
+        pokazStacje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DownloadRequestTask downloadRequestTask = new DownloadRequestTask(new RequestCallback<String>() {
+                    @Override
+                    public void updateFromResponse(String response) {
+                        try {
+                            JSONObject jResponse = new JSONObject(response);
+                            GasStation gasStation = GasStation.parseJSON(jResponse);
+                            LatLng station = new LatLng(gasStation.getLatitiude(),gasStation.getLongitude());
+                            Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwnerName()));
+                            mMap.moveCamera(CameraUpdateFactory.newLatLng(station));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                downloadRequestTask.execute(url,"GET");
+
+
+            }
+       });
+
 
         setSupportActionBar(mToolbar);
         //   tekst = (EditText) findViewById(R.id.editText);
