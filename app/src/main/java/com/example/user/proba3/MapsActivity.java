@@ -35,6 +35,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -86,11 +87,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (enabled) {
 
 
-            gpsTracker = new GPSTracker(this.getApplicationContext());
+          /*  gpsTracker = new GPSTracker(this.getApplicationContext());
             mLocation = gpsTracker.getLocation();
 
                 longitude = mLocation.getLongitude();
-                latitude = mLocation.getLatitude();
+                latitude = mLocation.getLatitude();*/
 
 
 
@@ -103,8 +104,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
-            dialog = ProgressDialog.show(MapsActivity.this, "", "Prosze czekac na wczytanie sie aplikacji", true);
+            dialog = new ProgressDialog(MapsActivity.this);
+            dialog.setTitle("KAPPA");
             dialog.show();
+
+
 
         }
 
@@ -129,7 +133,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 now = mMap.addMarker(new MarkerOptions().position(latLng));
                 if (czyTrybSledzenia) {
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                    mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+                 //   mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                 }
 
                 Location nasza = new Location("");
@@ -215,17 +219,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     @Override
                     public void updateFromResponse(String response) {
                         try {
-                            JSONObject jResponse = new JSONObject(response);
-                            GasStation gasStation = GasStation.parseJSON(jResponse);
-                            LatLng station = new LatLng(gasStation.getLatitiude(),gasStation.getLongitude());
-                            Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwner()));
-                            mMap.moveCamera(CameraUpdateFactory.newLatLng(station));
+                            JSONArray jResponse = new JSONArray(response);
+                            for(int i=0; i < jResponse.length();i++) {
+                                GasStation gasStation = GasStation.parseJSON(jResponse.getJSONObject(i));
+                                LatLng station = new LatLng(gasStation.getLatitiude(), gasStation.getLongitude());
+                                Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwner()));
+                                mMap.moveCamera(CameraUpdateFactory.newLatLng(station));
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 });
-                downloadRequestTask.execute(url,"GET");
+
+                downloadRequestTask.execute(url,"GET","500000", Double.toString(latitude), Double.toString(longitude));
 
 
             }
@@ -321,6 +328,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
+     //   dialog.dismiss();
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATIONPERMISSION);
 

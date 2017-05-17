@@ -163,10 +163,10 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
                             ListaNaStacjeDoDodaniaNaMape.add(miejsceDoDodaniaDoListy);
                             ArrayList<Gas> gases = new ArrayList<Gas>();
                         gases.add(gaz);
-                        Address address = new Address("Kappa",1,"waw","23-504","wawieckie","polackie");
+
                           
 
-                          GasStation stacjaBenz = new GasStation(nazwaStacji,"Orlen",polozenie.latitude,polozenie.longitude,address,gases);
+                          GasStation stacjaBenz = new GasStation(nazwaStacji,"Orlen",polozenie.latitude,polozenie.longitude, gases);
 
                             JSONObject stacj = new JSONObject();
                             JSONObject gas = new JSONObject();

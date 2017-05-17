@@ -35,7 +35,8 @@ public class DownloadRequestTask extends AsyncTask<String, Void, String> {
             String distance = params[2];
             String latitude = params[3];
             String longitude = params[4];
-
+            String parameters = "?distance=" + distance + "&latitude=" + latitude + "&longitude=" + longitude + "&action=getNearestStations";
+            urlString += parameters;
             try {
                         URL url = new URL(urlString);
                 result = downloadUrl(url, method);

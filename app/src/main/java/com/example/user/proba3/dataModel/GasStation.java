@@ -46,20 +46,20 @@ public class GasStation {
     public double getLongitude() {
         return longitude;
     }
-//    public void addGas(Gas gas) {
-//        this.gases.add(gas);
-//    }
+
+    public String getUuid() {return uuid;}
+
 
     public static GasStation parseJSON(JSONObject jsonObject) throws JSONException {
-        JSONArray entity = jsonObject.getJSONArray("entities");
-        String ownerName = entity.getJSONObject(0).getString("owner");
-        String uuid = entity.getJSONObject(0).getString("uuid");
+
+        String ownerName = jsonObject.getString("owner");
+        String uuid = jsonObject.getString("uuid");
         ArrayList<Gas> gases = new ArrayList<>();
-        JSONArray gasesArray = entity.getJSONObject(0).getJSONArray("gases");
+        JSONArray gasesArray = jsonObject.getJSONArray("gases");
         for(int i = 0; i<gasesArray.length(); i++) {
             gases.add(Gas.parseJSON(gasesArray.getJSONObject(i)));
         }
-        JSONObject locationJSON = entity.getJSONObject(0).getJSONObject("location");
+        JSONObject locationJSON = jsonObject.getJSONObject("location");
         double latitude = locationJSON.getDouble("latitude");
         double longitude = locationJSON.getDouble("longitude");
         return new GasStation(uuid, ownerName, latitude, longitude, gases);
