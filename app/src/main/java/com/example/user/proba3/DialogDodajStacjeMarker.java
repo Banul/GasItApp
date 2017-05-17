@@ -16,12 +16,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
 
-import com.example.user.proba3.dataModel.Address;
 import com.example.user.proba3.dataModel.Gas;
 import com.example.user.proba3.dataModel.GasStation;
 

@@ -9,8 +9,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -18,32 +16,19 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
 import com.example.user.proba3.dataModel.GasStation;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -53,13 +38,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.Objects;
 
 
@@ -88,7 +67,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Spinner spinner;
 
     private boolean czyTrybSledzenia = true;
-    String url = "https://apibaas-trial.apigee.net/gasitapp/gasitapp/stations/737137b7-2d07-11e7-9fee-0ad881f403bf";
+    String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
 
 
     @Override
@@ -239,7 +218,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             JSONObject jResponse = new JSONObject(response);
                             GasStation gasStation = GasStation.parseJSON(jResponse);
                             LatLng station = new LatLng(gasStation.getLatitiude(),gasStation.getLongitude());
-                            Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwnerName()));
+                            Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwner()));
                             mMap.moveCamera(CameraUpdateFactory.newLatLng(station));
                         } catch (JSONException e) {
                             e.printStackTrace();

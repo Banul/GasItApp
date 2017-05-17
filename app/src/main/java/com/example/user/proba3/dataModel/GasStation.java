@@ -13,12 +13,12 @@ import java.util.ArrayList;
  */
 
 public class GasStation {
-    private String stationName;
-    private String ownerName;
+    private String uuid;
+    private String owner;
     // Lokalizacja
     private double latitide;
     private double longitude;
-    private Address address;
+
     // Lista paliw oferowanych na stacji
     ArrayList<Gas> gases;
 
@@ -27,21 +27,16 @@ public class GasStation {
 
     }
 
-    public GasStation(String stationName, String ownerName, double latitude, double longitude, Address address, ArrayList<Gas> gases) {
-        this.stationName = stationName;
-        this.ownerName = ownerName;
+    public GasStation(String uuid, String owner, double latitude, double longitude, ArrayList<Gas> gases) {
+        this.uuid = uuid;
+        this.owner = owner;
         this.latitide = latitude;
         this.longitude = longitude;
-        this.address = address;
         this.gases = gases;
     }
 
-    public String getStationName() {
-        return stationName;
-    }
-
-    public String getOwnerName() {
-        return ownerName;
+    public String getOwner() {
+        return owner;
     }
 
     public double getLatitiude() {
@@ -57,8 +52,8 @@ public class GasStation {
 
     public static GasStation parseJSON(JSONObject jsonObject) throws JSONException {
         JSONArray entity = jsonObject.getJSONArray("entities");
-        String stationName = entity.getJSONObject(0).getString("name");
         String ownerName = entity.getJSONObject(0).getString("owner");
+        String uuid = entity.getJSONObject(0).getString("uuid");
         ArrayList<Gas> gases = new ArrayList<>();
         JSONArray gasesArray = entity.getJSONObject(0).getJSONArray("gases");
         for(int i = 0; i<gasesArray.length(); i++) {
@@ -67,20 +62,10 @@ public class GasStation {
         JSONObject locationJSON = entity.getJSONObject(0).getJSONObject("location");
         double latitude = locationJSON.getDouble("latitude");
         double longitude = locationJSON.getDouble("longitude");
-      //  JSONObject addressJSON = jsonObject.getJSONObject("adr");                         //todo zastanowić się nad strukturą, co powinna posiadać klasa GasStation
-       // Address address = Address.parseJSON(addressJSON);
-        Address address = new Address();
-        return new GasStation(stationName, ownerName, latitude, longitude, address, gases);
+        return new GasStation(uuid, ownerName, latitude, longitude, gases);
     }
     public JSONObject toJSON() throws JSONException {
         JSONObject toReturn = new JSONObject();
-
-        toReturn.put("station-name", stationName);
-        toReturn.put("name", generateAPIKeyName());
-
-        JSONObject addressJSON = address.toJSON();
-        toReturn.put("adr", addressJSON);
-
         JSONObject locationJSON = new JSONObject();
         locationJSON.put("latitude", latitide);
         locationJSON.put("longitude", longitude);
@@ -88,7 +73,5 @@ public class GasStation {
 
         return toReturn;
     }
-    private String generateAPIKeyName() {
-        return this.ownerName + " " + this.address.getCity() + " " + this.address.getStreet() + " " + this.address.getNumber();
-    }
+
 }

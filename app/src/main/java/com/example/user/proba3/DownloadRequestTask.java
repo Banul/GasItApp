@@ -8,6 +8,7 @@ package com.example.user.proba3;
         import java.io.IOException;
         import java.io.InputStream;
         import java.io.InputStreamReader;
+        import java.net.URI;
         import java.net.URL;
 
         import javax.net.ssl.HttpsURLConnection;
@@ -31,8 +32,12 @@ public class DownloadRequestTask extends AsyncTask<String, Void, String> {
         if(!isCancelled() && params != null && params.length > 0) {
             String urlString = params[0];
             String method = params[1];
+            String distance = params[2];
+            String latitude = params[3];
+            String longitude = params[4];
+
             try {
-                URL url = new URL(urlString);
+                        URL url = new URL(urlString);
                 result = downloadUrl(url, method);
                 if(result == null) {
                     throw new IOException("No response received.");
@@ -53,6 +58,7 @@ public class DownloadRequestTask extends AsyncTask<String, Void, String> {
         String result = "";
         try {
             connection = (HttpsURLConnection) url.openConnection();
+
             connection.setRequestMethod(method);
             connection.connect();
 
