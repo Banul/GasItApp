@@ -13,6 +13,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -47,7 +48,7 @@ import java.util.Objects;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, RequestCallback<String> {
 
-    private final int  LOCATIONPERMISSION = 0;
+    private final int LOCATIONPERMISSION = 0;
     private GoogleMap mMap;
     private GPSTracker gpsTracker;
     private Location mLocation;
@@ -61,10 +62,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ProgressDialog dialog;
     private EditText tekst;
     private Button przycisk;
-    private ArrayList<LatLng> lista = new ArrayList<LatLng>();
+    private ArrayList<Marker> lista = new ArrayList<Marker>();
     private boolean czyPokazacPrompt = false;
     private boolean czyPromptZostalpokazany = false;
     private Location lokalizacjaStacjiNaKtorejJestesmy;
+    private Location ObecnaLokacja;
     private Spinner spinner;
 
     private boolean czyTrybSledzenia = true;
@@ -80,7 +82,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .isProviderEnabled(LocationManager.GPS_PROVIDER);
 
 
-
         if (!enabled)
             showAlertWindow();
 
@@ -92,9 +93,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 longitude = mLocation.getLongitude();
                 latitude = mLocation.getLatitude();*/
-
-
-
 
 
             setContentView(R.layout.activity_maps);
@@ -109,13 +107,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             dialog.show();
 
 
-
         }
 
         mlocListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
                 dialog.dismiss();
+                Log.d("locationChanged","changed");
+                ObecnaLokacja = location;
+
 
                 if (now != null) {
                     {
@@ -133,7 +133,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 now = mMap.addMarker(new MarkerOptions().position(latLng));
                 if (czyTrybSledzenia) {
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                 //   mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+                    //   mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                 }
 
                 Location nasza = new Location("");
@@ -208,8 +208,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Toolbar mToolbar = (Toolbar)findViewById(R.id.button3);
 
         // Button mBut = (Button) findViewById(R.id.button2);
-          Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
-            Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
+        Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
 
 
         pokazStacje.setOnClickListener(new View.OnClickListener() {
@@ -220,7 +220,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void updateFromResponse(String response) {
                         try {
                             JSONArray jResponse = new JSONArray(response);
-                            for(int i=0; i < jResponse.length();i++) {
+                            for (int i = 0; i < jResponse.length(); i++) {
                                 GasStation gasStation = GasStation.parseJSON(jResponse.getJSONObject(i));
                                 LatLng station = new LatLng(gasStation.getLatitiude(), gasStation.getLongitude());
                                 Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwner()));
@@ -232,11 +232,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 });
 
-                downloadRequestTask.execute(url,"GET","500000", Double.toString(latitude), Double.toString(longitude));
+                downloadRequestTask.execute(url, "GET", "500000", Double.toString(latitude), Double.toString(longitude));
 
 
             }
-       });
+        });
 
 
         setSupportActionBar(mToolbar);
@@ -316,7 +316,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-
     protected void onDestroy() {
         super.onDestroy();
     }
@@ -328,7 +327,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-     //   dialog.dismiss();
+        //   dialog.dismiss();
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATIONPERMISSION);
 
@@ -339,28 +338,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             return;
         }
-    //    mMap.setMyLocationEnabled(true);
+        //    mMap.setMyLocationEnabled(true);
 
         final LatLng polozenie = new LatLng(latitude, longitude);
-      // mMap.addMarker(new MarkerOptions().position(polozenie).title("Marker here"));
-       mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(polozenie,zoom));
+        // mMap.addMarker(new MarkerOptions().position(polozenie).title("Marker here"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(polozenie, zoom));
 
-        if (mMap != null)
-        {
+        if (mMap != null) {
             mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
 
                 @Override
                 public void onMapLongClick(LatLng latLng) {
 
-                    DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng,lista, mMap);
+                    DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng, lista, mMap);
                     dialog.show(getFragmentManager(), "my_dialog");
 
-  //                  mMap.addMarker(new MarkerOptions().position(latLng));
+                    //                  mMap.addMarker(new MarkerOptions().position(latLng));
 //
 //                    lista = new ArrayList<LatLng>();
 //                    lista.add(latLng);
 
-                    Log.d("lista",lista.toString());
+                    Log.d("lista", lista.toString());
 
                 }
             });
@@ -370,30 +368,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-    public void showAlertWindow()
-    {
+    public void showAlertWindow() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setMessage("Twoj GPS jest wylaczany, czy chcesz go wlaczyc?")
                 .setCancelable(false)
                 .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
 
-                    public void onClick(final DialogInterface dialog,final int id) {
+                    public void onClick(final DialogInterface dialog, final int id) {
 
                         startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
 
                     }
                 })
                 .setNegativeButton("Nie", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog,final int id) {
+                    public void onClick(final DialogInterface dialog, final int id) {
                         dialog.cancel();
                     }
                 });
         AlertDialog alert = builder.create();
         alert.show();
     }
-
-
 
 
 //    public void geoLocate(View view) {
@@ -420,70 +415,81 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //            mMap.moveCamera(update);
 //        }
 
-        public boolean SprawdzCzyJestesNaStacji(LatLng latLng)
-        {
-            Log.d("sprawdzStacje","SprawdzStacje");
-            boolean zwroc = false;
-            Location lokacjaNasza = new Location("");
-            lokacjaNasza.setLongitude(latLng.longitude);
-            lokacjaNasza.setLatitude(latLng.latitude);
-            Location lokacjaMarkera = new Location("");
-            double dystans=1000;
+    public boolean SprawdzCzyJestesNaStacji(LatLng latLng) {
+        Log.d("sprawdzStacje", "SprawdzStacje");
+        boolean zwroc = false;
+        Location lokacjaNasza = new Location("");
+        lokacjaNasza.setLongitude(latLng.longitude);
+        lokacjaNasza.setLatitude(latLng.latitude);
+        Location lokacjaMarkera = new Location("");
+        double dystans = 1000;
 
-            if (lista != null) {
-                for (LatLng punkt : lista) {
-                    Log.d("aa","bbccddf");
-                    lokacjaMarkera.setLatitude(punkt.latitude);
-                    lokacjaMarkera.setLongitude(punkt.longitude);
-                    dystans = lokacjaNasza.distanceTo(lokacjaMarkera); //dystans w metrach
-                    if (dystans<=200) {
-                        zwroc = true;
-                        lokalizacjaStacjiNaKtorejJestesmy = lokacjaMarkera;
-                        break;
-                    }
+        if (lista != null) {
+            for (Marker punkt : lista) {
+                Log.d("aa", "bbccddf");
+                lokacjaMarkera.setLatitude(punkt.getPosition().latitude);
+                lokacjaMarkera.setLongitude(punkt.getPosition().longitude);
+                dystans = lokacjaNasza.distanceTo(lokacjaMarkera); //dystans w metrach
+                if (dystans <= 200) {
+                    zwroc = true;
+                    lokalizacjaStacjiNaKtorejJestesmy = lokacjaMarkera;
+                    break;
                 }
-
             }
+
+        }
+        return zwroc;
+    }
+
+
+    public boolean CzyJestesmyNaStacjiWersjaBezIterowaniaPoLiscie(Location lokalizacjaStacjiNaKtorejJestesmy, Location lokacjaNasza)
+    {
+        double dystans = lokalizacjaStacjiNaKtorejJestesmy.distanceTo(lokacjaNasza);
+        if (dystans <= 200) {
+            Log.d("Jestm na stacji","na stacji");
+            boolean zwroc = true;
             return zwroc;
         }
+
+        else
+            return false;
+    }
 
     @Override
     public void updateFromResponse(String response) {
 
-        Log.d("data77","upd");
-        Log.d("data78",response);
+        Log.d("data77", "upd");
+        Log.d("data78", response);
 
 
     }
 
 
-    private class KlasaSprawdzajacaCzyPokazacPrompt extends AsyncTask< Void, Void ,Boolean >
-        {
-            long _czas;
-            LatLng _polozenie;
+    private class KlasaSprawdzajacaCzyPokazacPrompt extends AsyncTask<Void, Void, Boolean> {
+        long _czas;
+        LatLng _polozenie;
 
-            public  KlasaSprawdzajacaCzyPokazacPrompt(long _czas,LatLng _polozenie){
-                this._czas = _czas;
-                this._polozenie = _polozenie;
-            }
-
-
-            @Override
-            protected Boolean doInBackground(Void... params) {
-
-                Log.d("kebabNaCienkim","kebabNaCienkim");
-                while (System.currentTimeMillis()-_czas < 10000)
-                {
-                    Log.d("Sprawdz","Sprawdzam");
-                    if (SprawdzCzyJestesNaStacji(_polozenie) == false)
-                        break;
-                    else {
-                        czyPokazacPrompt = true;
-                    }
-                }
-                return czyPokazacPrompt;
-            }
+        public KlasaSprawdzajacaCzyPokazacPrompt(long _czas, LatLng _polozenie) {
+            this._czas = _czas;
+            this._polozenie = _polozenie;
         }
+
+
+        @Override
+        protected Boolean doInBackground(Void... params) {
+
+            Log.d("kebabNaCienkim", "kebabNaCienkim");
+            while (System.currentTimeMillis() - _czas < 10000) {
+                Log.d("Sprawdz", "Sprawdzam");
+                if (!CzyJestesmyNaStacjiWersjaBezIterowaniaPoLiscie(lokalizacjaStacjiNaKtorejJestesmy,ObecnaLokacja))
+                    break;
+                else {
+                    czyPokazacPrompt = true;
+                }
+            }
+            return czyPokazacPrompt;
+        }
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -496,11 +502,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 mMap.setMyLocationEnabled(true);
 
             }
+            }
         }
 
     }
 
-    }
+
 
 
 

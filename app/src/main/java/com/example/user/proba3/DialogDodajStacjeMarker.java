@@ -22,6 +22,7 @@ import com.example.user.proba3.dataModel.Gas;
 import com.example.user.proba3.dataModel.GasStation;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONException;
@@ -48,7 +49,7 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
     CustomAdapterStacje adapterStacje;
     public ArrayList<ItemData> CustomListViewValuesArr = new ArrayList<ItemData>();
     public ArrayList<ItemData> ListaNaStacje = new ArrayList<ItemData>();
-    public ArrayList<LatLng> ListaNaStacjeDoDodaniaNaMape = new ArrayList<LatLng>();
+    public ArrayList ListaNaStacjeDoDodaniaNaMape = new ArrayList<Marker>();
     private boolean CzyMoznaDodacZnacznikNaMape = false;
 
     public DialogDodajStacjeMarker()
@@ -148,7 +149,9 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
                       //  ArrayList<String> lista = new ArrayList<String>();
                        // Log.d("okok","okok");
                         if (polozenie!=null) {
-                            mapa.addMarker(new MarkerOptions().position(polozenie));
+                            Marker markerek = mapa.addMarker(new MarkerOptions().position(polozenie));
+                            Log.d("dodaje cholerny marker","aaa");
+                            ListaNaStacjeDoDodaniaNaMape.add(markerek);
                         }
                         ItemData wybranaStacja = (ItemData) spinner.getSelectedItem();
                         String nazwaStacji = wybranaStacja.getText();
