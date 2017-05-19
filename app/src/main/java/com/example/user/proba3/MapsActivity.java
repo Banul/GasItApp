@@ -28,6 +28,7 @@ import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
 
 import com.example.user.proba3.dataModel.GasStation;
+import com.google.android.gms.common.api.Result;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -68,6 +69,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Location lokalizacjaStacjiNaKtorejJestesmy;
     private Location ObecnaLokacja;
     private Spinner spinner;
+    private KlasaSprawdzajacaCzyPokazacPrompt obj;
 
     private boolean czyTrybSledzenia = true;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
@@ -143,18 +145,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (lokalizacjaStacjiNaKtorejJestesmy != null && czyPromptZostalpokazany) {
                     double dystans = nasza.distanceTo(lokalizacjaStacjiNaKtorejJestesmy); //dystans w metrach
 
-                    if (dystans > 250) {
+                    if (dystans > 200) {
                         czyPromptZostalpokazany = false;
                     }
                 }
 
                 if (SprawdzCzyJestesNaStacji(latLng)) {
 
+                    Log.d("dupa100","dupa100");
                     long czas = System.currentTimeMillis();
                     long czasPrompt = System.currentTimeMillis();
 
-                    KlasaSprawdzajacaCzyPokazacPrompt obj = new KlasaSprawdzajacaCzyPokazacPrompt(czas, latLng);
-                    obj.execute();
+                    if (obj==null) {
+                        Log.d("dupa18","dupa18");
+                        obj = new KlasaSprawdzajacaCzyPokazacPrompt(czas, latLng);
+                        obj.execute();
+
+                    }
 
 
                     if (czyPokazacPrompt && !czyPromptZostalpokazany) {
@@ -163,7 +170,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         DialogDodajStacjeMarker dialog2 = new DialogDodajStacjeMarker();
                         dialog2.show(getFragmentManager(), "my_dialog");
                         czyPromptZostalpokazany = true;
-
+                        czyPokazacPrompt = false;
                     }
 
 
@@ -430,7 +437,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 lokacjaMarkera.setLatitude(punkt.getPosition().latitude);
                 lokacjaMarkera.setLongitude(punkt.getPosition().longitude);
                 dystans = lokacjaNasza.distanceTo(lokacjaMarkera); //dystans w metrach
+                Log.d("dystanss",String.valueOf(dystans));
                 if (dystans <= 200) {
+                    Log.d("zwracam true", "zwracam true");
                     zwroc = true;
                     lokalizacjaStacjiNaKtorejJestesmy = lokacjaMarkera;
                     break;
@@ -478,6 +487,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         @Override
         protected Boolean doInBackground(Void... params) {
 
+            czyPokazacPrompt = false;
             Log.d("kebabNaCienkim", "kebabNaCienkim");
             while (System.currentTimeMillis() - _czas < 10000) {
                 Log.d("Sprawdz", "Sprawdzam");
@@ -485,9 +495,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     break;
                 else {
                     czyPokazacPrompt = true;
+                    Log.d("pokazprompt","pokazprompt");
+//                    try {
+//                    //    wait(10000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
                 }
             }
             return czyPokazacPrompt;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            super.onPostExecute(aBoolean);
+
         }
     }
 

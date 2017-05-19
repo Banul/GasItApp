@@ -1,4 +1,4 @@
-#Thu May 18 09:22:25 CEST 2017
-base.0=C\:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Fri May 19 12:50:24 CEST 2017
+base.0=C\:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.0=C\:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.0=C\:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
