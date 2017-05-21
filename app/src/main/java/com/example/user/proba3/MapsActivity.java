@@ -26,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.example.user.proba3.dataModel.GasStation;
 import com.google.android.gms.common.api.Result;
@@ -33,6 +34,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -47,7 +49,7 @@ import java.util.Objects;
 
 //import com.google.android.gms.location.LocationListener;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, RequestCallback<String> {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, RequestCallback<String>, GoogleMap.OnMarkerClickListener {
 
     private final int LOCATIONPERMISSION = 0;
     private GoogleMap mMap;
@@ -70,6 +72,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Location ObecnaLokacja;
     private Spinner spinner;
     private KlasaSprawdzajacaCzyPokazacPrompt obj;
+    private Marker melbourne;
 
     private boolean czyTrybSledzenia = true;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
@@ -132,12 +135,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // Getting longitude of the current location
                 double longitude = location.getLongitude();
                 LatLng latLng = new LatLng(latitude, longitude);
-                now = mMap.addMarker(new MarkerOptions().position(latLng));
+                now = mMap.addMarker(new MarkerOptions().position(latLng).title("Twoje polozenie").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
                 if (czyTrybSledzenia) {
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
                     //   mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                 }
 
+                //TODO dodac snippety do stacji
                 Location nasza = new Location("");
                 nasza.setLatitude(latLng.latitude);
                 nasza.setLongitude(latLng.longitude);
@@ -177,6 +181,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
 
 
+                Log.d("dupa600","dupa600");
             }
 
             @Override
@@ -185,6 +190,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
             }
+
+
 
             @Override
             public void onProviderEnabled(String provider) {
@@ -249,6 +256,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         setSupportActionBar(mToolbar);
         //   tekst = (EditText) findViewById(R.id.editText);
         //   przycisk = (Button) findViewById(R.id.button2);
+
 
     }
 
@@ -338,7 +346,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATIONPERMISSION);
 
+//        final LatLng MELBOURNE = new LatLng(-37.81319, 144.96298);
+
         mMap = googleMap;
+
+//   n
+
+
+       // mMap.setOnMarkerClickListener(this);
         float zoom = 15;
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -352,7 +367,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(polozenie, zoom));
 
         if (mMap != null) {
-            mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+            mMap.setOnMapLongClickListener(
+                    new GoogleMap.OnMapLongClickListener() {
 
                 @Override
                 public void onMapLongClick(LatLng latLng) {
@@ -360,10 +376,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng, lista, mMap);
                     dialog.show(getFragmentManager(), "my_dialog");
 
-                    //                  mMap.addMarker(new MarkerOptions().position(latLng));
+                    //              mMap.addMarker(new MarkerOptions().position(latLng));
 //
 //                    lista = new ArrayList<LatLng>();
-//                    lista.add(latLng);
+           //         lista.add(latLng);
 
                     Log.d("lista", lista.toString());
 
@@ -431,24 +447,29 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Location lokacjaMarkera = new Location("");
         double dystans = 1000;
 
-        if (lista != null) {
+        if (lista != null && lista.size()!=0) {
+            zwroc = false;
             for (Marker punkt : lista) {
                 Log.d("aa", "bbccddf");
                 lokacjaMarkera.setLatitude(punkt.getPosition().latitude);
                 lokacjaMarkera.setLongitude(punkt.getPosition().longitude);
                 dystans = lokacjaNasza.distanceTo(lokacjaMarkera); //dystans w metrach
                 Log.d("dystanss",String.valueOf(dystans));
+                Log.d("chuj12","chuj12");
+
                 if (dystans <= 200) {
                     Log.d("zwracam true", "zwracam true");
                     zwroc = true;
                     lokalizacjaStacjiNaKtorejJestesmy = lokacjaMarkera;
                     break;
+                    }
+
                 }
             }
 
-        }
         return zwroc;
     }
+
 
 
     public boolean CzyJestesmyNaStacjiWersjaBezIterowaniaPoLiscie(Location lokalizacjaStacjiNaKtorejJestesmy, Location lokacjaNasza)
@@ -471,6 +492,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d("data78", response);
 
 
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        Log.d("dupa123","dupa123");
+//        if(!marker.isInfoWindowShown()) {
+//            melbourne.showInfoWindow();
+//            Log.d("isShownh","isShownh");
+//        }
+//        if(marker.isInfoWindowShown()) {
+//            melbourne.hideInfoWindow();
+//            Log.d("isHiden","isHiden");
+//
+//        }
+
+        return true;
     }
 
 

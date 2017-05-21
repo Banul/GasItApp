@@ -162,8 +162,6 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
 
                        Gas gaz = new Gas(nazwaPaliwa,cenaD);
                         if (polozenie!=null) {
-                            LatLng miejsceDoDodaniaDoListy = new LatLng(polozenie.latitude, polozenie.longitude); //tu wywala
-                            ListaNaStacjeDoDodaniaNaMape.add(miejsceDoDodaniaDoListy);
                             ArrayList<Gas> gases = new ArrayList<Gas>();
                         gases.add(gaz);
 
