@@ -6,7 +6,7 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.2"
-    timestamp="1495445429139"
+    timestamp="1495446247627"
     token="-8192089235787017170"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -18,17 +18,10 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="32" />
+        duration="0" />
     <task
         name="verifier"
-        duration="6" />
-
-    <artifact
-        location="D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\build\outputs\apk\app-debug.apk"
-        type="SPLIT_MAIN" />
+        duration="0" />
 
     <build
         build-mode="FULL"
@@ -73,15 +66,7 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1495444949329"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\build\outputs\apk\app-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1495445429139"
+        timestamp="1495445666556"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
@@ -90,5 +75,9 @@
             location="D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\build\outputs\apk\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
+    <build
+        build-mode="COLD"
+        timestamp="1495446247627"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
