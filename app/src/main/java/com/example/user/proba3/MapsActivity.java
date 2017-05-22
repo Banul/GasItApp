@@ -1,4 +1,4 @@
-//// TODO: 2017-04-23 Pomyśleć zeby ten geolokalizator to był dynamiczny framgment
+
 
 package com.example.user.proba3;
 
@@ -9,6 +9,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -19,15 +21,19 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.proba3.dataModel.Gas;
 import com.example.user.proba3.dataModel.GasStation;
 import com.google.android.gms.common.api.Result;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -167,6 +173,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
 
 
+
                     if (czyPokazacPrompt && !czyPromptZostalpokazany) {
 
                         LatLng polo = new LatLng(latitude, longitude);
@@ -228,13 +235,51 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             for (int i = 0; i < jResponse.length(); i++) {
                                 GasStation gasStation = GasStation.parseJSON(jResponse.getJSONObject(i));
                                 LatLng station = new LatLng(gasStation.getLatitiude(), gasStation.getLongitude());
-                                Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwner()));
-                              //  mMap.moveCamera(CameraUpdateFactory.newLatLng(station));
+                                ArrayList<Gas> ListaGaz = gasStation.zwrocListeGazow();
+
+                                ArrayList <Gas> listaObiektow  = new ArrayList<>();
+
+                                // tutaj ten snippet.
+                                String snippetString = ListaGaz.get(0).getName()+" "+ListaGaz.get(0).getPrice();
+                                Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwner()).snippet(snippetString));
                                 lista.add(stationMarker);
+                                Log.d("aaaa","ccbb");
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                    }
+                });
+
+                //multiple lines snippet
+                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+                    @Override
+                    public View getInfoWindow(Marker arg0) {
+                        return null;
+                    }
+
+                    @Override
+                    public View getInfoContents(Marker marker) {
+
+                        LinearLayout info = new LinearLayout(getApplicationContext());
+                        info.setOrientation(LinearLayout.VERTICAL);
+
+                        TextView title = new TextView(getApplicationContext());
+                        title.setTextColor(Color.BLACK);
+                        title.setGravity(Gravity.CENTER);
+                        title.setTypeface(null, Typeface.BOLD);
+                        title.setText(marker.getTitle());
+
+                        TextView snippet = new TextView(getApplicationContext());
+                        snippet.setTextColor(Color.GRAY);
+                        snippet.setText(marker.getSnippet());
+
+                        info.addView(title);
+                        info.addView(snippet);
+
+                        return info;
                     }
                 });
 

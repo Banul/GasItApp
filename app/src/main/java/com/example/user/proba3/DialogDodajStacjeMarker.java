@@ -167,7 +167,7 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
 
                           
 
-                          GasStation stacjaBenz = new GasStation(nazwaStacji,"Orlen",polozenie.latitude,polozenie.longitude, gases);
+                          GasStation stacjaBenz = new GasStation(nazwaStacji,"",polozenie.latitude,polozenie.longitude, gases);
 
                             JSONObject stacj = new JSONObject();
                             JSONObject gas = new JSONObject();

@@ -44,16 +44,16 @@
         "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_text_cursor_material.xml"
     },
     {
-        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_btn_check_material.xml"
+        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gaz.png",
+        "source": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\src\\main\\res\\drawable\\gaz.png"
     },
     {
         "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
         "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
-        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gaz.png",
-        "source": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\src\\main\\res\\drawable\\gaz.png"
+        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_btn_check_material.xml"
     },
     {
         "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark_normal.xml",
@@ -76,12 +76,12 @@
         "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_ic_clear_material.xml"
     },
     {
-        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark_normal.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\7808b53a3f2fdd0ba99eb14608391061c7154beb\\output\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light_normal.xml",
         "source": "C:\\Users\\User\\.android\\build-cache\\7808b53a3f2fdd0ba99eb14608391061c7154beb\\output\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark_normal.xml",
+        "source": "C:\\Users\\User\\.android\\build-cache\\7808b53a3f2fdd0ba99eb14608391061c7154beb\\output\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
     },
     {
         "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
@@ -112,24 +112,24 @@
         "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_dialog_material_background.xml"
     },
     {
-        "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_tab_indicator_material.xml"
-    },
-    {
         "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark_focused.xml",
         "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\236f5e32a14a94a7fb2ca88f7674cc26888cdc21\\output\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
         "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
-        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
         "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark_focused.xml",

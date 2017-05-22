@@ -1,151 +1,151 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:2:1-48:12
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:2:1-48:12
 	package
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:3:5-38
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:2:11-69
 	android:versionCode
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:10:5-79
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:10:5-79
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:10:22-76
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:10:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:11:5-80
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:11:5-80
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:11:22-78
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:11:22-78
 uses-permission#android.permission.INTERNET
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:12:5-67
-MERGED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a69f5878c2b99d75bb53a08e2d6ca195b481a9b5\output\AndroidManifest.xml:20:5-66
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:12:5-67
+MERGED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\User\.android\build-cache\1b98ed1ae2d9ff71b2d73a14711a4e14ad2e0a19\output\AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:12:22-64
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:12:22-64
 uses-feature#android.hardware.location.gps
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:13:5-66
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:13:5-66
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:13:19-63
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:13:19-63
 uses-feature#android.hardware.location.network
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:14:5-70
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:14:5-70
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:14:19-67
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:14:19-67
 application
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:17:5-46:19
-MERGED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a69f5878c2b99d75bb53a08e2d6ca195b481a9b5\output\AndroidManifest.xml:24:5-19
-MERGED from [com.google.android.gms:play-services-location:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\9e386943e33d2da59c933dba393b605e460c9c77\output\AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\236f5e32a14a94a7fb2ca88f7674cc26888cdc21\output\AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-tasks:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\e2c0d68e9d60933b07e911e3b249bfa387c9992f\output\AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\5cd1d0d6913e4b7952b0491c9d0d7b7beaec87c7\output\AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:design:24.2.1] C:\Users\Marcin Jamroz\.android\build-cache\e9e2cc4c474fd9fb1770cecbb51b644a436a6c50\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\f200095e31ac3cec16ac25b1b1a306c8723b2505\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\e5d83f65028f168a5dc3ca75b2bf95095e52c5a7\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\d136c7f6bddbb9de082a5b306fe251278982b3c2\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\89a6bd34308c7815933ef3ff8b0ec181d59071cc\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\650d97f6003c06dffa39d089286ac58cc519c978\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\1a31855842a2b46e57f19ff887043ec1ee311dc2\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\5767000449fb4f18a64c5e5c7cd9271dad77a0b4\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\edf8016ea6dc1fe002c6095f301bb00b584b6c24\output\AndroidManifest.xml:29:5-20
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:17:5-46:19
+MERGED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\User\.android\build-cache\1b98ed1ae2d9ff71b2d73a14711a4e14ad2e0a19\output\AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-location:10.2.1] C:\Users\User\.android\build-cache\40f5414b00a6708b8055f5b226d4d1aab933ba1b\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\User\.android\build-cache\7808b53a3f2fdd0ba99eb14608391061c7154beb\output\AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:10.2.1] C:\Users\User\.android\build-cache\f15aec30845ee1e820ac5fb318eeca24e0e11202\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\User\.android\build-cache\260073afd452cb09f802453d8b6992d7d59b6aaf\output\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:design:24.2.1] C:\Users\User\.android\build-cache\cfa4ee51681fed4d2431b45127ade8a7a76cf3fc\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\User\.android\build-cache\472450958dc6c4bf9552ea448074f0d220cc71ba\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.0] C:\Users\User\.android\build-cache\b90b590ee1eaba0798d90607e10dc4c9960c57db\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\User\.android\build-cache\d7ca58a7969bef86821196b5d5d3e7c81c9bd804\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\User\.android\build-cache\1c1d78dc7ea4b08da0ad6105a798d86d21261fb9\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\User\.android\build-cache\75aa6a7f2baceac703bcc81e9f83000b82c0716e\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\User\.android\build-cache\2f3f198fef2679b2760af8663a481a99325cc9e5\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\User\.android\build-cache\1d4bdea01a3b171534bc60df20ae46aa2c9cb766\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\User\.android\build-cache\4dc267978181334df299fa0b94a8efd5f4c30015\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.0] C:\Users\User\.android\build-cache\9e3b9280649494ee7872c44cc4fba3024ec974a6\output\AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:20:9-41
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:20:9-41
 	android:supportsRtl
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:22:9-35
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:22:9-35
 	android:roundIcon
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:21:9-54
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:21:9-54
 	android:allowBackup
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:18:9-35
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:18:9-35
 	android:icon
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:19:9-43
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:19:9-43
 	android:theme
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:23:9-40
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:23:9-40
 meta-data#com.google.android.geo.API_KEY
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:33:9-35:55
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:33:9-35:55
 	android:value
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:35:13-52
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:35:13-52
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:34:13-58
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:34:13-58
 activity#com.example.user.proba3.MapsActivity
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:37:9-45:20
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:37:9-45:20
 	android:label
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:39:13-56
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:39:13-56
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:38:13-41
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:38:13-41
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:40:13-44:29
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:40:13-44:29
 action#android.intent.action.MAIN
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:41:17-69
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:41:17-69
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:41:25-66
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:41:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:43:17-77
+ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:43:17-77
 	android:name
-		ADDED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml:43:27-74
+		ADDED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml:43:27-74
 uses-sdk
-INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a69f5878c2b99d75bb53a08e2d6ca195b481a9b5\output\AndroidManifest.xml:23:5-43
-MERGED from [com.google.android.gms:play-services-location:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\9e386943e33d2da59c933dba393b605e460c9c77\output\AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\236f5e32a14a94a7fb2ca88f7674cc26888cdc21\output\AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-tasks:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\e2c0d68e9d60933b07e911e3b249bfa387c9992f\output\AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\5cd1d0d6913e4b7952b0491c9d0d7b7beaec87c7\output\AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:design:24.2.1] C:\Users\Marcin Jamroz\.android\build-cache\e9e2cc4c474fd9fb1770cecbb51b644a436a6c50\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\f200095e31ac3cec16ac25b1b1a306c8723b2505\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\e5d83f65028f168a5dc3ca75b2bf95095e52c5a7\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\d136c7f6bddbb9de082a5b306fe251278982b3c2\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\89a6bd34308c7815933ef3ff8b0ec181d59071cc\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\650d97f6003c06dffa39d089286ac58cc519c978\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\1a31855842a2b46e57f19ff887043ec1ee311dc2\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:24.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a4efdde4c44a22f6888b1126793af6e77fe4d629\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\5767000449fb4f18a64c5e5c7cd9271dad77a0b4\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\edf8016ea6dc1fe002c6095f301bb00b584b6c24\output\AndroidManifest.xml:21:5-23:58
+INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\User\.android\build-cache\1b98ed1ae2d9ff71b2d73a14711a4e14ad2e0a19\output\AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-location:10.2.1] C:\Users\User\.android\build-cache\40f5414b00a6708b8055f5b226d4d1aab933ba1b\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\User\.android\build-cache\7808b53a3f2fdd0ba99eb14608391061c7154beb\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:10.2.1] C:\Users\User\.android\build-cache\f15aec30845ee1e820ac5fb318eeca24e0e11202\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\User\.android\build-cache\260073afd452cb09f802453d8b6992d7d59b6aaf\output\AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:design:24.2.1] C:\Users\User\.android\build-cache\cfa4ee51681fed4d2431b45127ade8a7a76cf3fc\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:25.3.0] C:\Users\User\.android\build-cache\472450958dc6c4bf9552ea448074f0d220cc71ba\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.3.0] C:\Users\User\.android\build-cache\b90b590ee1eaba0798d90607e10dc4c9960c57db\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\User\.android\build-cache\d7ca58a7969bef86821196b5d5d3e7c81c9bd804\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\User\.android\build-cache\1c1d78dc7ea4b08da0ad6105a798d86d21261fb9\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\User\.android\build-cache\75aa6a7f2baceac703bcc81e9f83000b82c0716e\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\User\.android\build-cache\2f3f198fef2679b2760af8663a481a99325cc9e5\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\User\.android\build-cache\1d4bdea01a3b171534bc60df20ae46aa2c9cb766\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:24.2.1] C:\Users\User\.android\build-cache\c726844a2fddb5d5ad785a784b0523c5034e5187\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\User\.android\build-cache\4dc267978181334df299fa0b94a8efd5f4c30015\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.0] C:\Users\User\.android\build-cache\9e3b9280649494ee7872c44cc4fba3024ec974a6\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\output\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:25.3.0] C:\Users\User\.android\build-cache\472450958dc6c4bf9552ea448074f0d220cc71ba\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Studia\Semestr 6\UMIK\Projekt\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\User\Desktop\umk\Umik\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a69f5878c2b99d75bb53a08e2d6ca195b481a9b5\output\AndroidManifest.xml:19:5-78
+ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\User\.android\build-cache\1b98ed1ae2d9ff71b2d73a14711a4e14ad2e0a19\output\AndroidManifest.xml:19:5-78
 	android:name
-		ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a69f5878c2b99d75bb53a08e2d6ca195b481a9b5\output\AndroidManifest.xml:19:22-76
+		ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\User\.android\build-cache\1b98ed1ae2d9ff71b2d73a14711a4e14ad2e0a19\output\AndroidManifest.xml:19:22-76
 uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a69f5878c2b99d75bb53a08e2d6ca195b481a9b5\output\AndroidManifest.xml:21:5-77
+ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\User\.android\build-cache\1b98ed1ae2d9ff71b2d73a14711a4e14ad2e0a19\output\AndroidManifest.xml:21:5-77
 	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a69f5878c2b99d75bb53a08e2d6ca195b481a9b5\output\AndroidManifest.xml:21:19-51
+		ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\User\.android\build-cache\1b98ed1ae2d9ff71b2d73a14711a4e14ad2e0a19\output\AndroidManifest.xml:21:19-51
 	android:required
-		ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\a69f5878c2b99d75bb53a08e2d6ca195b481a9b5\output\AndroidManifest.xml:21:52-75
+		ADDED from [com.google.android.gms:play-services-maps:10.2.1] C:\Users\User\.android\build-cache\1b98ed1ae2d9ff71b2d73a14711a4e14ad2e0a19\output\AndroidManifest.xml:21:52-75
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\236f5e32a14a94a7fb2ca88f7674cc26888cdc21\output\AndroidManifest.xml:19:9-172
+ADDED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\User\.android\build-cache\7808b53a3f2fdd0ba99eb14608391061c7154beb\output\AndroidManifest.xml:19:9-172
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\236f5e32a14a94a7fb2ca88f7674cc26888cdc21\output\AndroidManifest.xml:19:146-170
+		ADDED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\User\.android\build-cache\7808b53a3f2fdd0ba99eb14608391061c7154beb\output\AndroidManifest.xml:19:146-170
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\236f5e32a14a94a7fb2ca88f7674cc26888cdc21\output\AndroidManifest.xml:19:86-145
+		ADDED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\User\.android\build-cache\7808b53a3f2fdd0ba99eb14608391061c7154beb\output\AndroidManifest.xml:19:86-145
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\236f5e32a14a94a7fb2ca88f7674cc26888cdc21\output\AndroidManifest.xml:19:19-85
+		ADDED from [com.google.android.gms:play-services-base:10.2.1] C:\Users\User\.android\build-cache\7808b53a3f2fdd0ba99eb14608391061c7154beb\output\AndroidManifest.xml:19:19-85
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\5cd1d0d6913e4b7952b0491c9d0d7b7beaec87c7\output\AndroidManifest.xml:20:9-121
+ADDED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\User\.android\build-cache\260073afd452cb09f802453d8b6992d7d59b6aaf\output\AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\5cd1d0d6913e4b7952b0491c9d0d7b7beaec87c7\output\AndroidManifest.xml:20:66-119
+		ADDED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\User\.android\build-cache\260073afd452cb09f802453d8b6992d7d59b6aaf\output\AndroidManifest.xml:20:66-119
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\Marcin Jamroz\.android\build-cache\5cd1d0d6913e4b7952b0491c9d0d7b7beaec87c7\output\AndroidManifest.xml:20:20-65
+		ADDED from [com.google.android.gms:play-services-basement:10.2.1] C:\Users\User\.android\build-cache\260073afd452cb09f802453d8b6992d7d59b6aaf\output\AndroidManifest.xml:20:20-65
 meta-data#android.support.VERSION
-ADDED from [com.android.support:appcompat-v7:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-v4:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\f200095e31ac3cec16ac25b1b1a306c8723b2505\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\e5d83f65028f168a5dc3ca75b2bf95095e52c5a7\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\d136c7f6bddbb9de082a5b306fe251278982b3c2\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\89a6bd34308c7815933ef3ff8b0ec181d59071cc\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\650d97f6003c06dffa39d089286ac58cc519c978\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\1a31855842a2b46e57f19ff887043ec1ee311dc2\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\5767000449fb4f18a64c5e5c7cd9271dad77a0b4\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\edf8016ea6dc1fe002c6095f301bb00b584b6c24\output\AndroidManifest.xml:25:5-27:34
+ADDED from [com.android.support:appcompat-v7:25.3.0] C:\Users\User\.android\build-cache\472450958dc6c4bf9552ea448074f0d220cc71ba\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.0] C:\Users\User\.android\build-cache\b90b590ee1eaba0798d90607e10dc4c9960c57db\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.0] C:\Users\User\.android\build-cache\d7ca58a7969bef86821196b5d5d3e7c81c9bd804\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.0] C:\Users\User\.android\build-cache\1c1d78dc7ea4b08da0ad6105a798d86d21261fb9\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.0] C:\Users\User\.android\build-cache\75aa6a7f2baceac703bcc81e9f83000b82c0716e\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.0] C:\Users\User\.android\build-cache\2f3f198fef2679b2760af8663a481a99325cc9e5\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.0] C:\Users\User\.android\build-cache\1d4bdea01a3b171534bc60df20ae46aa2c9cb766\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-core-ui:25.3.0] C:\Users\User\.android\build-cache\4dc267978181334df299fa0b94a8efd5f4c30015\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.0] C:\Users\User\.android\build-cache\9e3b9280649494ee7872c44cc4fba3024ec974a6\output\AndroidManifest.xml:25:5-27:34
 	android:value
-		ADDED from [com.android.support:appcompat-v7:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\output\AndroidManifest.xml:27:9-31
+		ADDED from [com.android.support:appcompat-v7:25.3.0] C:\Users\User\.android\build-cache\472450958dc6c4bf9552ea448074f0d220cc71ba\output\AndroidManifest.xml:27:9-31
 	android:name
-		ADDED from [com.android.support:appcompat-v7:25.3.0] C:\Users\Marcin Jamroz\.android\build-cache\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\output\AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:appcompat-v7:25.3.0] C:\Users\User\.android\build-cache\472450958dc6c4bf9552ea448074f0d220cc71ba\output\AndroidManifest.xml:26:9-47

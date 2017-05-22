@@ -49,6 +49,12 @@ public class GasStation {
 
     public String getUuid() {return uuid;}
 
+    public ArrayList zwrocListeGazow ()
+    {
+        return gases;
+    }
+
+
 
     public static GasStation parseJSON(JSONObject jsonObject) throws JSONException {
 
