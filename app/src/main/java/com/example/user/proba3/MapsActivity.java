@@ -126,19 +126,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     {
                         now.remove();
                     }
-
                 }
 
                 // Getting latitude of the current location
-                double latitude = location.getLatitude();
+                 latitude = location.getLatitude();
 
                 // Getting longitude of the current location
-                double longitude = location.getLongitude();
+                 longitude = location.getLongitude();
                 LatLng latLng = new LatLng(latitude, longitude);
                 now = mMap.addMarker(new MarkerOptions().position(latLng).title("Twoje polozenie").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
                 if (czyTrybSledzenia) {
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-                    //   mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+                    mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
                 }
 
                 //TODO dodac snippety do stacji
@@ -176,12 +175,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         czyPromptZostalpokazany = true;
                         czyPokazacPrompt = false;
                     }
-
-
                 }
-
-
-                Log.d("dupa600","dupa600");
             }
 
             @Override
@@ -196,10 +190,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onProviderEnabled(String provider) {
 
-                Log.d("lokacja1", "cosTam");
 
-                longitude = mLocation.getLongitude();
-                latitude = mLocation.getLatitude();
                 setContentView(R.layout.activity_maps);
                 SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                         .findFragmentById(R.id.map);
@@ -238,7 +229,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 GasStation gasStation = GasStation.parseJSON(jResponse.getJSONObject(i));
                                 LatLng station = new LatLng(gasStation.getLatitiude(), gasStation.getLongitude());
                                 Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwner()));
-                                mMap.moveCamera(CameraUpdateFactory.newLatLng(station));
+                              //  mMap.moveCamera(CameraUpdateFactory.newLatLng(station));
+                                lista.add(stationMarker);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
