@@ -1,50 +1,18 @@
 [
     {
-        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
         "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
-        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
-    },
-    {
-        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable-v21\\notification_action_background.xml"
-    },
-    {
-        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
         "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable-v21\\notification_action_background.xml"
-    },
-    {
-        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Projekt\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "merged": "D:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
         "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\Desktop\\umik2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\472450958dc6c4bf9552ea448074f0d220cc71ba\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     }
 ]

@@ -1,4 +1,7 @@
-#Mon May 22 16:18:09 CEST 2017
-base.0=C\:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Mon May 22 22:47:51 CEST 2017
+base.0=D\:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_7841f045fa9960d96c99184028dfc6d6ec777ce5
+renamed.1=classes2.dex
 renamed.0=classes.dex
-file.0=C\:\\Users\\User\\Desktop\\umk\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.1=D\:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_452371b985f40f653aeca38b5d6e95aabe6c4ea1\\classes.dex
+base.1=D\:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_452371b985f40f653aeca38b5d6e95aabe6c4ea1
+file.0=D\:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_7841f045fa9960d96c99184028dfc6d6ec777ce5\\classes.dex

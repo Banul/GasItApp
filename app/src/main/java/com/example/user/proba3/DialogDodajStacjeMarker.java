@@ -16,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.user.proba3.network.RequestCallback;
+import com.example.user.proba3.network.UploadRequestTask;
 import com.google.android.gms.maps.GoogleMap;
 
 import com.example.user.proba3.dataModel.Gas;
@@ -51,6 +53,8 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
     public ArrayList<ItemData> ListaNaStacje = new ArrayList<ItemData>();
     public ArrayList ListaNaStacjeDoDodaniaNaMape = new ArrayList<Marker>();
     private boolean CzyMoznaDodacZnacznikNaMape = false;
+    String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
+
 
     public DialogDodajStacjeMarker()
     {
@@ -165,15 +169,23 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
                             ArrayList<Gas> gases = new ArrayList<Gas>();
                         gases.add(gaz);
 
-                          
 
-                          GasStation stacjaBenz = new GasStation(nazwaStacji,"",polozenie.latitude,polozenie.longitude, gases);
 
-                            JSONObject stacj = new JSONObject();
-                            JSONObject gas = new JSONObject();
+                            GasStation stacjaBenz = new GasStation(nazwaStacji,polozenie.latitude,polozenie.longitude, gases);
+
+                            String stacjaDoWyslania;
+
                             try {
-                                stacj = stacjaBenz.toJSON();
-                                gas = gaz.toJSON();
+                                stacjaDoWyslania = stacjaBenz.toJSON().toString();
+                                UploadRequestTask uploadRequestTask = new UploadRequestTask(new RequestCallback<String>() {
+                                    @Override
+                                    public void updateFromResponse(String response) {
+                                        String kodOdpowiedzi = response;
+
+                                    }
+                                });
+
+                                uploadRequestTask.execute(url,"POST","addStation",stacjaDoWyslania);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

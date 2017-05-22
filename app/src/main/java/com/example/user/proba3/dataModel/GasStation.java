@@ -20,19 +20,23 @@ public class GasStation {
     private double longitude;
 
     // Lista paliw oferowanych na stacji
-    ArrayList<Gas> gases;
+    ArrayList<Gas> gasesArray;
 
-    public GasStation()
+    public GasStation(String owner, double latitude, double longitude, ArrayList<Gas> gases)
     {
-
+        this.owner = owner;
+        this.latitide = latitude;
+        this.longitude = longitude;
+        this.gasesArray = gases;
     }
 
-    public GasStation(String uuid, String owner, double latitude, double longitude, ArrayList<Gas> gases) {
+
+    public GasStation(String uuid, String owner, double latitude, double longitude, ArrayList<Gas> gasesArray) {
         this.uuid = uuid;
         this.owner = owner;
         this.latitide = latitude;
         this.longitude = longitude;
-        this.gases = gases;
+        this.gasesArray = gasesArray;
     }
 
     public String getOwner() {
@@ -51,7 +55,7 @@ public class GasStation {
 
     public ArrayList zwrocListeGazow ()
     {
-        return gases;
+        return gasesArray;
     }
 
 
@@ -72,10 +76,22 @@ public class GasStation {
     }
     public JSONObject toJSON() throws JSONException {
         JSONObject toReturn = new JSONObject();
-        JSONObject locationJSON = new JSONObject();
-        locationJSON.put("latitude", latitide);
-        locationJSON.put("longitude", longitude);
-        toReturn.put("location", locationJSON);
+
+        JSONObject location = new JSONObject();
+        location.put("latitude", latitide);
+        location.put("longitude", longitude);
+        toReturn.put("location", location);
+
+
+        JSONArray gases = new JSONArray();
+
+        for (Gas gas:gasesArray
+                ) {
+            gases.put(gas.toJSON());
+        }
+        toReturn.put("gases",gases);
+
+        toReturn.put("owner",owner);
 
         return toReturn;
     }
