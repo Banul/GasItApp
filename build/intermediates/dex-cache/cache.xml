@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="D:\Studia\Semestr 6\UMIK\Umik 2\Umik\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\programowanie\android\umik4\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="9bce5d78b41aa0a82a93ec4a3039239d72e2fbd5">
-        <dex dex="D:\Studia\Semestr 6\UMIK\Umik 2\Umik\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_7841f045fa9960d96c99184028dfc6d6ec777ce5\classes.dex" />
+        sha1="e7c20f11031013f71e85234554975bc7adb72c01">
+        <dex dex="C:\programowanie\android\umik4\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_9e4065c02de6357c9bbe02da42ee635b442a40e9\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="D:\Studia\Semestr 6\UMIK\Umik 2\Umik\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\programowanie\android\umik4\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="D:\Studia\Semestr 6\UMIK\Umik 2\Umik\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_452371b985f40f653aeca38b5d6e95aabe6c4ea1\classes.dex" />
+        sha1="12920f9016b8b05acbc2af7cdc13cef6946fe7d3">
+        <dex dex="C:\programowanie\android\umik4\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_97809e317ec6682d5a243c8f8d6f42b285875386\classes.dex" />
     </item>
 
 </items>

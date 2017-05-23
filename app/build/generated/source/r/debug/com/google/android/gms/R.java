@@ -71,8 +71,8 @@ public final class R {
         public static final int common_google_signin_btn_text_light_focused = 0x7f020063;
         public static final int common_google_signin_btn_text_light_normal = 0x7f020064;
         public static final int common_google_signin_btn_text_light_normal_background = 0x7f020065;
-        public static final int googleg_disabled_color_18 = 0x7f02006a;
-        public static final int googleg_standard_color_18 = 0x7f02006b;
+        public static final int googleg_disabled_color_18 = 0x7f02006b;
+        public static final int googleg_standard_color_18 = 0x7f02006c;
     }
     public static final class id {
         public static final int adjust_height = 0x7f0c0036;
@@ -89,8 +89,8 @@ public final class R {
         public static final int satellite = 0x7f0c0039;
         public static final int standard = 0x7f0c0041;
         public static final int terrain = 0x7f0c003a;
-        public static final int text = 0x7f0c00a3;
-        public static final int text2 = 0x7f0c00a1;
+        public static final int text = 0x7f0c00a9;
+        public static final int text2 = 0x7f0c00a7;
         public static final int wide = 0x7f0c0042;
         public static final int wrap_content = 0x7f0c0020;
     }

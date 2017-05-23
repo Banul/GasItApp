@@ -4,6 +4,8 @@ package com.example.user.proba3;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -77,6 +79,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Spinner spinner;
     private KlasaSprawdzajacaCzyPokazacPrompt obj;
     private Marker melbourne;
+    private DialogChooseGas dialogChooseGas;
 
     private boolean czyTrybSledzenia = true;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
@@ -342,6 +345,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             case R.id.Hybrid:
                 mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                 break;
+            case R.id.choose_gas_type:
+
+                // Wyświetlanie dialogu z wyborem
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+                if(prev!=null) {
+                    ft.remove(prev);
+                }
+                ft.addToBackStack(null);
+                dialogChooseGas = new DialogChooseGas(new JobDoneCallback() {
+                    @Override
+                    public void jobDone() {
+                       // gasChanged();
+
+                    }
+                }, getBaseContext());
+                dialogChooseGas.show(ft, "dialog");
+
+                break;
             default:
                 break;
 
@@ -352,13 +374,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-
     protected void onResume() {
         super.onResume();
         Log.d("lokacja", "resume");
 
     }
-
+public void gasChanged() {
+    dialogChooseGas.dismiss();
+}
 
     protected void onStop() {
         super.onStop();

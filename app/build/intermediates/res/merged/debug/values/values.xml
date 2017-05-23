@@ -639,9 +639,15 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="fuel_choose">Wybór paliwa</string>
+    <string name="fuel_lpg">LPG</string>
+    <string name="fuel_on">ON</string>
+    <string name="fuel_pb95">Pb95</string>
+    <string name="fuel_pb98">Pb98</string>
     <string name="geolocalizator">Tryb sledzenia</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCrYMjkc0iR2ej_CiBaAv6s9CMNqZasziY</string>
     <string name="normal_map">Mapa normalna</string>
+    <string name="ok">OK</string>
     <string name="satellite_map">Mapa satelitarna</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>

@@ -7,4 +7,12 @@
     <string name="terrain_map">Mapa terenowa</string>
     <string name="satellite_map">Mapa satelitarna</string>
     <string name="Hybrid">Mapa hybrydowa</string>
+    <string name="fuel_choose">Wybór paliwa</string>
+    <string name="ok">OK</string>
+    <!--  Paliwa -->
+    <string name="fuel_lpg">LPG</string>
+    <string name="fuel_pb95">Pb95</string>
+    <string name="fuel_pb98">Pb98</string>
+    <string name="fuel_on">ON</string>
+
 </resources>

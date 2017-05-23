@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
+        "outputFile": "C:\\programowanie\\android\\umik4\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 106
                 },
                 "from": {
-                    "file": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\values-port\\values-port.xml",
+                    "file": "C:\\Users\\jaroslaw\\.android\\build-cache\\e3864fcdd112e2bb17fa5d3210cc2e006f4e6ed2\\output\\res\\values-port\\values-port.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

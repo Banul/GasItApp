@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "C:\\programowanie\\android\\umik4\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\332120f7930e556369dd08ba5f99e7d7a7d1f13f\\output\\res\\values\\values.xml",
+                    "file": "C:\\Users\\jaroslaw\\.android\\build-cache\\8ff550183dda8383a9b6326a70c607aefed398ba\\output\\res\\values\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
