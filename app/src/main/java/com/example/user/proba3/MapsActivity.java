@@ -38,6 +38,7 @@ import android.widget.TextView;
 import com.example.user.proba3.dataModel.Gas;
 import com.example.user.proba3.dataModel.GasStation;
 import com.example.user.proba3.network.DownloadRequestTask;
+import com.example.user.proba3.network.GasStationComparator;
 import com.example.user.proba3.network.RequestCallback;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -52,6 +53,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 
 
@@ -123,6 +126,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }
 
+   //     changeFuelPreference("PB95");
         mlocListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -229,15 +233,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
 
+                downloadStations();
+
 
             }
         });
 
 
         setSupportActionBar(mToolbar);
-        //   tekst = (EditText) findViewById(R.id.editText);
-        //   przycisk = (Button) findViewById(R.id.button2);
-
 
     }
 
@@ -479,8 +482,42 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return true;
     }
 
-    public void changeFuelPreference(String fuel) {
-        System.out.println(fuel);
+    public void changeFuelPreference(String fuel)
+
+    {
+
+        //lista = listaStacji -> w tej zmiennej mamy wszystkie pobrane stacje
+        //Stwórz tablicę gdzie są tylko te stacje z wybranym paliwem przez usera
+        // Posortuj tę tablicę względem ceny wybranego gazu
+        // Podziel tę tablicę na trzy części
+        // Dodaj dla każdej stacji marker o odpowiednim kolorze, bazując na tym w jakiej części znalazła sie stacja
+
+        ArrayList<GasStation> tablStacj = new ArrayList<>();
+        for (GasStation element : listaStacji) {
+            ArrayList<Gas> listaGazow = element.zwrocListeGazow(); //lista gazów dla danej stacji
+            for (Gas gas : listaGazow) {
+                Log.d("dupadupa", gas.getName());
+                Log.d("dupadupa1",gas.getName().replace(" ",""));
+                if (gas.getName().replace(" ","").equals(fuel)) {
+                    tablStacj.add(element);
+                }
+
+                System.out.println(fuel);
+                Log.d("fueeeel", fuel);
+            }
+            Log.d("a","b");
+        }
+//teraz mamy interesującą nas tablicę stacji, trzeba ją posortować względem ceny na danej stacji
+// 1. Trzeba dla każdej z tych stacji wziąć konkretną cenę
+        // 2. Trzeba te ceny posortować
+        // 3.
+
+       Collections.sort(tablStacj,new GasStationComparator(fuel));
+        Log.d("a","a");
+
+
+
+
     }
 
 
@@ -537,7 +574,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    public void downloadStations(String response) {
+    public void downloadStations() {
         DownloadRequestTask downloadRequestTask = new DownloadRequestTask(new RequestCallback<String>() {
             @Override
             public void updateFromResponse(String response) {

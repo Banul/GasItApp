@@ -51,10 +51,10 @@ public class DialogChooseGas extends DialogFragment {
         String fuel = null;
         switch (checkedID) {
             case R.id.rbPb95:
-                fuel = "Pb95";
+                fuel = "PB95";
                 break;
             case R.id.rbPb98:
-                fuel = "Pb98";
+                fuel = "PB98";
                 break;
             case R.id.rbON:
                 fuel = "ON";

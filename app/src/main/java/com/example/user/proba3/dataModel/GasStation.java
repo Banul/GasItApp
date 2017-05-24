@@ -2,11 +2,14 @@ package com.example.user.proba3.dataModel;
 
 
 
+import android.support.annotation.NonNull;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * Created by jaroslaw on 24.04.2017.
@@ -22,8 +25,7 @@ public class GasStation {
     // Lista paliw oferowanych na stacji
     ArrayList<Gas> gasesArray;
 
-    public GasStation(String owner, double latitude, double longitude, ArrayList<Gas> gases)
-    {
+    public GasStation(String owner, double latitude, double longitude, ArrayList<Gas> gases) {
         this.owner = owner;
         this.latitide = latitude;
         this.longitude = longitude;
@@ -51,13 +53,13 @@ public class GasStation {
         return longitude;
     }
 
-    public String getUuid() {return uuid;}
-
-    public ArrayList zwrocListeGazow ()
-    {
-        return gasesArray;
+    public String getUuid() {
+        return uuid;
     }
 
+    public ArrayList zwrocListeGazow() {
+        return gasesArray;
+    }
 
 
     public static GasStation parseJSON(JSONObject jsonObject) throws JSONException {
@@ -66,7 +68,7 @@ public class GasStation {
         String uuid = jsonObject.getString("uuid");
         ArrayList<Gas> gases = new ArrayList<>();
         JSONArray gasesArray = jsonObject.getJSONArray("gases");
-        for(int i = 0; i<gasesArray.length(); i++) {
+        for (int i = 0; i < gasesArray.length(); i++) {
             gases.add(Gas.parseJSON(gasesArray.getJSONObject(i)));
         }
         JSONObject locationJSON = jsonObject.getJSONObject("location");
@@ -74,6 +76,7 @@ public class GasStation {
         double longitude = locationJSON.getDouble("longitude");
         return new GasStation(uuid, ownerName, latitude, longitude, gases);
     }
+
     public JSONObject toJSON() throws JSONException {
         JSONObject toReturn = new JSONObject();
 
@@ -85,15 +88,16 @@ public class GasStation {
 
         JSONArray gases = new JSONArray();
 
-        for (Gas gas:gasesArray
+        for (Gas gas : gasesArray
                 ) {
             gases.put(gas.toJSON());
         }
-        toReturn.put("gases",gases);
+        toReturn.put("gases", gases);
 
-        toReturn.put("owner",owner);
+        toReturn.put("owner", owner);
 
         return toReturn;
     }
+
 
 }
