@@ -28,9 +28,9 @@ public class DialogChooseGas extends DialogFragment {
     SharedPreferences sharedPreferences;
 
 
-    public DialogChooseGas(Context context) {
+    public DialogChooseGas(SharedPreferences sharedPreferences) {
 
-        this.sharedPreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        this.sharedPreferences = sharedPreferences;
     }
 
     @Nullable
