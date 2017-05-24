@@ -52,10 +52,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 //import com.google.android.gms.location.LocationListener;
@@ -85,6 +88,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private KlasaSprawdzajacaCzyPokazacPrompt obj;
     private Marker melbourne;
     private DialogChooseGas dialogChooseGas;
+    private double lowestPrice;
+
 
     private boolean czyTrybSledzenia = true;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
@@ -497,29 +502,83 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             ArrayList<Gas> listaGazow = element.zwrocListeGazow(); //lista gazów dla danej stacji
             for (Gas gas : listaGazow) {
                 Log.d("dupadupa", gas.getName());
-                Log.d("dupadupa1",gas.getName().replace(" ",""));
-                if (gas.getName().replace(" ","").equals(fuel)) {
+                Log.d("dupadupa1", gas.getName().replace(" ", ""));
+                if (gas.getName().replace(" ", "").equals(fuel)) {
                     tablStacj.add(element);
                 }
 
                 System.out.println(fuel);
                 Log.d("fueeeel", fuel);
             }
-            Log.d("a","b");
+            Log.d("a", "b");
         }
 //teraz mamy interesującą nas tablicę stacji, trzeba ją posortować względem ceny na danej stacji
 // 1. Trzeba dla każdej z tych stacji wziąć konkretną cenę
         // 2. Trzeba te ceny posortować
-        // 3.
 
-       Collections.sort(tablStacj,new GasStationComparator(fuel));
-        Log.d("a","a");
+        Collections.sort(tablStacj, new GasStationComparator(fuel));
+        if (tablStacj.size() != 0) {
+
+            GasStation stationLowestPrice = tablStacj.get(0); // stacja z najnizszym szukanym paliwem
+            ArrayList<Gas> listaGazowSzukamyNajmniejszejWartosci = stationLowestPrice.zwrocListeGazow();
+
+            for (int i = 0; i < listaGazowSzukamyNajmniejszejWartosci.size(); i++) {
+                if (fuel.equals(listaGazowSzukamyNajmniejszejWartosci.get(i).getName().replace(" ", ""))) {
+                    lowestPrice = listaGazowSzukamyNajmniejszejWartosci.get(i).getPrice();
+                    Log.d("aa", "bbv");
+                    break;
+                }
+            }
+
+            ArrayList<GasStation> najmnniejszeCeny = new ArrayList<>();
+            ArrayList<GasStation> srednieCeny = new ArrayList<>();
+            ArrayList<GasStation> wysokieCeny = new ArrayList<>();
+
+            for (GasStation element : tablStacj) {
+                ArrayList<Gas> listaG = element.zwrocListeGazow();
+
+                for (int i = 0; i < element.zwrocListeGazow().size(); i++) {
+                    if (fuel.equals(listaG.get(i).getName().replace(" ", ""))) {
+                        double cena = listaG.get(i).getPrice();
+
+                        if (cena <= lowestPrice + 0.1) {
+                            najmnniejszeCeny.add(element);
+                            continue;
+                        } else if (cena > lowestPrice + 0.2 && cena <= lowestPrice + 0.3) {
+                            srednieCeny.add(element);
+                            continue;
+                        } else {
+                            wysokieCeny.add(element);
+                            continue;
+                        }
+
+                    }
+                }
+                Log.d("a", "a");
+            }
+            mMap.clear();
+            for (GasStation stacja : najmnniejszeCeny) {
+
+                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+            }
+
+            for (GasStation stacja : srednieCeny) {
+
+                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+            }
 
 
+            for (GasStation stacja:wysokieCeny)
+            {
+                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
+            }
+        }
+        else
+            mMap.clear();
 
     }
-
 
     private class KlasaSprawdzajacaCzyPokazacPrompt extends AsyncTask<Void, Void, Boolean> {
         long _czas;
