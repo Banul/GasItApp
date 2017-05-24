@@ -232,8 +232,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         pokazStacje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 downloadStations();
+
 
 
             }
@@ -372,7 +372,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         @Override
                         public void onMapLongClick(LatLng latLng) {
 
-                            DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng, listaStacji, mMap);
+                            DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng, mMap);
                             dialog.show(getFragmentManager(), "my_dialog");
 
                             //              mMap.addMarker(new MarkerOptions().position(latLng));
@@ -575,6 +575,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public void downloadStations() {
+
+        listaStacji.clear();
+        mMap.clear();
         DownloadRequestTask downloadRequestTask = new DownloadRequestTask(new RequestCallback<String>() {
             @Override
             public void updateFromResponse(String response) {
@@ -583,6 +586,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     for (int i = 0; i < jResponse.length(); i++) {
                         GasStation gasStation = GasStation.parseJSON(jResponse.getJSONObject(i));
                         listaStacji.add(gasStation);
+
+                        //todo do usuniecia jak dobrze zrobimy automatyczne odswiezanie
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(gasStation.getLatitiude(),gasStation.getLongitude())).title(gasStation.getOwner()));
 
                     }
                 } catch (JSONException e) {
