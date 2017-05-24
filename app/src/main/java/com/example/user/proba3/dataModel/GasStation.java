@@ -25,6 +25,10 @@ public class GasStation {
     // Lista paliw oferowanych na stacji
     ArrayList<Gas> gasesArray;
 
+    public GasStation(){
+
+    }
+
     public GasStation(String owner, double latitude, double longitude, ArrayList<Gas> gases) {
         this.owner = owner;
         this.latitide = latitude;

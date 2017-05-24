@@ -10,35 +10,26 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
 
 import com.example.user.proba3.dataModel.Gas;
 import com.example.user.proba3.dataModel.GasStation;
 import com.example.user.proba3.network.DownloadRequestTask;
-import com.example.user.proba3.network.GasStationComparator;
 import com.example.user.proba3.network.RequestCallback;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -54,7 +45,6 @@ import org.json.JSONException;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
@@ -67,18 +57,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private final int LOCATIONPERMISSION = 0;
     private GoogleMap mMap;
-    private GPSTracker gpsTracker;
-    private Location mLocation;
-    private Location mLocation2;
+  //  private GPSTracker gpsTracker;
+  //  private Location mLocation;
+  //  private Location mLocation2;
     double latitude = 0, longitude = 0;
     private LocationManager locationManager;
     private LocationListener mlocListener;
     private Marker now;
-    private Marker dodany;
-    private Marker pierwszy;
     private ProgressDialog dialog;
-    private EditText tekst;
-    private Button przycisk;
     private ArrayList<GasStation> listaStacji = new ArrayList<GasStation>();
     private boolean czyPokazacPrompt = false;
     private boolean czyPromptZostalpokazany = false;
@@ -86,18 +72,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Location ObecnaLokacja;
     private Spinner spinner;
     private KlasaSprawdzajacaCzyPokazacPrompt obj;
-    private Marker melbourne;
     private DialogChooseGas dialogChooseGas;
     private double lowestPrice;
 
 
     private boolean czyTrybSledzenia = true;
-    String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
+    String url;
+    String chosenFuel = "PB95";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        url = getString(R.string.api_url);
+
         Log.d("lokacja", "create");
         LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
         boolean enabled = service
@@ -187,9 +176,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     if (czyPokazacPrompt && !czyPromptZostalpokazany) {
 
-                        LatLng polo = new LatLng(latitude, longitude);
-                        DialogDodajStacjeMarker dialog2 = new DialogDodajStacjeMarker();
-                        dialog2.show(getFragmentManager(), "my_dialog");
+                       // DialogDodajStacjeMarker dialog2 = new DialogDodajStacjeMarker();
+                     //   dialog2.show(getFragmentManager(), "my_dialog");
+
+                        DialogUpdatePrice updateDialog = new DialogUpdatePrice();
+                        updateDialog.setFuelName(chosenFuel);
+                        updateDialog.setGasStation(getStationByLocation(lokalizacjaStacjiNaKtorejJestesmy));
+                        updateDialog.show(getFragmentManager(),"updateDialog");
                         czyPromptZostalpokazany = true;
                         czyPokazacPrompt = false;
                     }
@@ -497,6 +490,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Podziel tę tablicę na trzy części
         // Dodaj dla każdej stacji marker o odpowiednim kolorze, bazując na tym w jakiej części znalazła sie stacja
 
+        chosenFuel = fuel;
         ArrayList<GasStation> tablStacj = new ArrayList<>();
         for (GasStation element : listaStacji) {
             ArrayList<Gas> listaGazow = element.zwrocListeGazow(); //lista gazów dla danej stacji
@@ -657,6 +651,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
 
         downloadRequestTask.execute(url, "GET", "500000", Double.toString(latitude), Double.toString(longitude));
+    }
+
+    public GasStation getStationByLocation(Location lokalizacjaStacji){
+        GasStation returnStation = new GasStation();
+        for (GasStation gasStation:listaStacji
+             ) {
+            Location currentStationLocation = new Location("");
+            currentStationLocation.setLatitude(gasStation.getLatitiude());
+            currentStationLocation.setLongitude(gasStation.getLongitude());
+            if(currentStationLocation.distanceTo(lokalizacjaStacji) < 200){
+                returnStation = gasStation;
+                break;
+            }
+
+        }
+
+        return returnStation;
     }
 
 }

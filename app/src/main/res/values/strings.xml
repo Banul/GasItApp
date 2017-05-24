@@ -15,6 +15,6 @@
     <string name="fuel_pb98">Pb98</string>
     <string name="fuel_on">ON</string>
 
-
+    <string name="api_url">https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec</string>
 
 </resources>
