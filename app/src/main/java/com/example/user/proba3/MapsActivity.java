@@ -72,7 +72,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ProgressDialog dialog;
     private EditText tekst;
     private Button przycisk;
-    private ArrayList<Marker> lista = new ArrayList<Marker>();
+    private ArrayList<GasStation> listaStacji = new ArrayList<GasStation>();
     private boolean czyPokazacPrompt = false;
     private boolean czyPromptZostalpokazany = false;
     private Location lokalizacjaStacjiNaKtorejJestesmy;
@@ -100,7 +100,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         sharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if(key.equals("fuelChoosePrefsKey")) { // klucz preferencji opcji
+                if (key.equals("fuelChoosePrefsKey")) { // klucz preferencji opcji
                     String fuel = sharedPreferences.getString(key, "Pb95");
                     System.out.println(fuel);
                 }
@@ -139,7 +139,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onLocationChanged(Location location) {
                 dialog.dismiss();
-                Log.d("locationChanged","changed");
+                Log.d("locationChanged", "changed");
                 ObecnaLokacja = location;
 
 
@@ -150,10 +150,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
 
                 // Getting latitude of the current location
-                 latitude = location.getLatitude();
+                latitude = location.getLatitude();
 
                 // Getting longitude of the current location
-                 longitude = location.getLongitude();
+                longitude = location.getLongitude();
                 LatLng latLng = new LatLng(latitude, longitude);
                 now = mMap.addMarker(new MarkerOptions().position(latLng).title("Twoje polozenie").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
                 if (czyTrybSledzenia) {
@@ -176,17 +176,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 if (SprawdzCzyJestesNaStacji(latLng)) {
 
-                    Log.d("dupa100","dupa100");
+                    Log.d("dupa100", "dupa100");
                     long czas = System.currentTimeMillis();
                     long czasPrompt = System.currentTimeMillis();
 
-                    if (obj==null) {
-                        Log.d("dupa18","dupa18");
+                    if (obj == null) {
+                        Log.d("dupa18", "dupa18");
                         obj = new KlasaSprawdzajacaCzyPokazacPrompt(czas, latLng);
                         obj.execute();
 
                     }
-
 
 
                     if (czyPokazacPrompt && !czyPromptZostalpokazany) {
@@ -206,7 +205,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
             }
-
 
 
             @Override
@@ -242,63 +240,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         pokazStacje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DownloadRequestTask downloadRequestTask = new DownloadRequestTask(new RequestCallback<String>() {
-                    @Override
-                    public void updateFromResponse(String response) {
-                        try {
-                            JSONArray jResponse = new JSONArray(response);
-                            for (int i = 0; i < jResponse.length(); i++) {
-                                GasStation gasStation = GasStation.parseJSON(jResponse.getJSONObject(i));
-                                LatLng station = new LatLng(gasStation.getLatitiude(), gasStation.getLongitude());
-                                ArrayList<Gas> ListaGaz = gasStation.zwrocListeGazow();
-
-                                ArrayList <Gas> listaObiektow  = new ArrayList<>();
-
-                                // tutaj ten snippet.
-                                String snippetString = ListaGaz.get(0).getName()+" "+ListaGaz.get(0).getPrice();
-                                Marker stationMarker = mMap.addMarker(new MarkerOptions().position(station).title(gasStation.getOwner()).snippet(snippetString));
-                                lista.add(stationMarker);
-                                Log.d("aaaa","ccbb");
-
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-
-                //multiple lines snippet
-                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-
-                    @Override
-                    public View getInfoWindow(Marker arg0) {
-                        return null;
-                    }
-
-                    @Override
-                    public View getInfoContents(Marker marker) {
-
-                        LinearLayout info = new LinearLayout(getApplicationContext());
-                        info.setOrientation(LinearLayout.VERTICAL);
-
-                        TextView title = new TextView(getApplicationContext());
-                        title.setTextColor(Color.BLACK);
-                        title.setGravity(Gravity.CENTER);
-                        title.setTypeface(null, Typeface.BOLD);
-                        title.setText(marker.getTitle());
-
-                        TextView snippet = new TextView(getApplicationContext());
-                        snippet.setTextColor(Color.GRAY);
-                        snippet.setText(marker.getSnippet());
-
-                        info.addView(title);
-                        info.addView(snippet);
-
-                        return info;
-                    }
-                });
-
-                downloadRequestTask.execute(url, "GET", "500000", Double.toString(latitude), Double.toString(longitude));
 
 
             }
@@ -368,7 +309,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 // Wyświetlanie dialogu z wyborem
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 Fragment prev = getFragmentManager().findFragmentByTag("dialog");
-                if(prev!=null) {
+                if (prev != null) {
                     ft.remove(prev);
                 }
                 ft.addToBackStack(null);
@@ -391,6 +332,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d("lokacja", "resume");
 
     }
+
     protected void onStop() {
         super.onStop();
         Log.d("lokacja", "stop");
@@ -419,7 +361,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //   n
 
 
-       // mMap.setOnMarkerClickListener(this);
+        // mMap.setOnMarkerClickListener(this);
         float zoom = 15;
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -436,21 +378,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             mMap.setOnMapLongClickListener(
                     new GoogleMap.OnMapLongClickListener() {
 
-                @Override
-                public void onMapLongClick(LatLng latLng) {
+                        @Override
+                        public void onMapLongClick(LatLng latLng) {
 
-                    DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng, lista, mMap);
-                    dialog.show(getFragmentManager(), "my_dialog");
+                            DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng, listaStacji, mMap);
+                            dialog.show(getFragmentManager(), "my_dialog");
 
-                    //              mMap.addMarker(new MarkerOptions().position(latLng));
+                            //              mMap.addMarker(new MarkerOptions().position(latLng));
 //
 //                    lista = new ArrayList<LatLng>();
-           //         lista.add(latLng);
+                            //         lista.add(latLng);
 
-                    Log.d("lista", lista.toString());
 
-                }
-            });
+                        }
+                    });
         }
 
 
@@ -480,29 +421,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
-//    public void geoLocate(View view) {
-//        EditText et = (EditText) findViewById(R.id.editText);
-//        String location = et.getText().toString();
-//        Geocoder gc = new Geocoder(this);
-//        try {
-//            List<Address> list = gc.getFromLocationName(location, 1);
-//            Address address = list.get(0);
-//            String locality = address.getLocality();
-//            Toast.makeText(this, locality, Toast.LENGTH_LONG).show();
-//            double latitude = address.getLatitude();
-//            double longitude = address.getLongitude();
-//            goToLocation(latitude,longitude,15);
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//        public void goToLocation(double lat, double lon, float zoom)
-//        {
-//            LatLng ll = new LatLng(lat, lon);
-//            CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll,zoom);
-//            mMap.moveCamera(update);
-//        }
 
     public boolean SprawdzCzyJestesNaStacji(LatLng latLng) {
         Log.d("sprawdzStacje", "SprawdzStacje");
@@ -513,41 +431,37 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Location lokacjaMarkera = new Location("");
         double dystans = 1000;
 
-        if (lista != null && lista.size()!=0) {
+        if (listaStacji != null && listaStacji.size() != 0) {
             zwroc = false;
-            for (Marker punkt : lista) {
+            for (GasStation punkt : listaStacji) {
                 Log.d("aa", "bbccddf");
-                lokacjaMarkera.setLatitude(punkt.getPosition().latitude);
-                lokacjaMarkera.setLongitude(punkt.getPosition().longitude);
+                lokacjaMarkera.setLatitude(punkt.getLatitiude());
+                lokacjaMarkera.setLongitude(punkt.getLongitude());
                 dystans = lokacjaNasza.distanceTo(lokacjaMarkera); //dystans w metrach
-                Log.d("dystanss",String.valueOf(dystans));
-                Log.d("chuj12","chuj12");
+                Log.d("dystanss", String.valueOf(dystans));
+                Log.d("chuj12", "chuj12");
 
                 if (dystans <= 200) {
                     Log.d("zwracam true", "zwracam true");
                     zwroc = true;
                     lokalizacjaStacjiNaKtorejJestesmy = lokacjaMarkera;
                     break;
-                    }
-
                 }
+
             }
+        }
 
         return zwroc;
     }
 
 
-
-    public boolean CzyJestesmyNaStacjiWersjaBezIterowaniaPoLiscie(Location lokalizacjaStacjiNaKtorejJestesmy, Location lokacjaNasza)
-    {
+    public boolean CzyJestesmyNaStacjiWersjaBezIterowaniaPoLiscie(Location lokalizacjaStacjiNaKtorejJestesmy, Location lokacjaNasza) {
         double dystans = lokalizacjaStacjiNaKtorejJestesmy.distanceTo(lokacjaNasza);
         if (dystans <= 200) {
-            Log.d("Jestm na stacji","na stacji");
+            Log.d("Jestm na stacji", "na stacji");
             boolean zwroc = true;
             return zwroc;
-        }
-
-        else
+        } else
             return false;
     }
 
@@ -563,7 +477,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(Marker marker) {
 
-        Log.d("dupa123","dupa123");
+        Log.d("dupa123", "dupa123");
 //        if(!marker.isInfoWindowShown()) {
 //            melbourne.showInfoWindow();
 //            Log.d("isShownh","isShownh");
@@ -595,11 +509,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             Log.d("kebabNaCienkim", "kebabNaCienkim");
             while (System.currentTimeMillis() - _czas < 10000) {
                 Log.d("Sprawdz", "Sprawdzam");
-                if (!CzyJestesmyNaStacjiWersjaBezIterowaniaPoLiscie(lokalizacjaStacjiNaKtorejJestesmy,ObecnaLokacja))
+                if (!CzyJestesmyNaStacjiWersjaBezIterowaniaPoLiscie(lokalizacjaStacjiNaKtorejJestesmy, ObecnaLokacja))
                     break;
                 else {
                     czyPokazacPrompt = true;
-                    Log.d("pokazprompt","pokazprompt");
+                    Log.d("pokazprompt", "pokazprompt");
 //                    try {
 //                    //    wait(10000);
 //                    } catch (InterruptedException e) {
@@ -621,17 +535,37 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if(requestCode == LOCATIONPERMISSION){
-            if(permissions.length == 1 && Objects.equals(permissions[0], Manifest.permission.ACCESS_FINE_LOCATION) &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == LOCATIONPERMISSION) {
+            if (permissions.length == 1 && Objects.equals(permissions[0], Manifest.permission.ACCESS_FINE_LOCATION) &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                 mMap.setMyLocationEnabled(true);
 
             }
-            }
         }
-
     }
+
+    public void downloadStations(String response) {
+        DownloadRequestTask downloadRequestTask = new DownloadRequestTask(new RequestCallback<String>() {
+            @Override
+            public void updateFromResponse(String response) {
+                try {
+                    JSONArray jResponse = new JSONArray(response);
+                    for (int i = 0; i < jResponse.length(); i++) {
+                        GasStation gasStation = GasStation.parseJSON(jResponse.getJSONObject(i));
+                        listaStacji.add(gasStation);
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        downloadRequestTask.execute(url, "GET", "500000", Double.toString(latitude), Double.toString(longitude));
+    }
+
+}
 
 
 

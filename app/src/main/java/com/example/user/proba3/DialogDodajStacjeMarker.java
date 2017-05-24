@@ -51,7 +51,7 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
     CustomAdapterStacje adapterStacje;
     public ArrayList<ItemData> CustomListViewValuesArr = new ArrayList<ItemData>();
     public ArrayList<ItemData> ListaNaStacje = new ArrayList<ItemData>();
-    public ArrayList ListaNaStacjeDoDodaniaNaMape = new ArrayList<Marker>();
+    public ArrayList ListaNaStacjeDoDodaniaNaMape = new ArrayList<GasStation>();
     private boolean CzyMoznaDodacZnacznikNaMape = false;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
 
@@ -61,12 +61,12 @@ public class  DialogDodajStacjeMarker extends DialogFragment implements AdapterV
 
     }
 
-    public DialogDodajStacjeMarker(LatLng ltlng, ArrayList listStac, GoogleMap mapka)
+    public DialogDodajStacjeMarker(LatLng ltlng, ArrayList listStacji, GoogleMap mapka)
 
     {
         this.mapa = mapka;
         this.polozenie = ltlng;
-        this.ListaNaStacjeDoDodaniaNaMape = listStac;
+        this.ListaNaStacjeDoDodaniaNaMape = listStacji;
     }
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
