@@ -1,4 +1,4 @@
-#Tue May 23 12:42:36 CEST 2017
+#Wed May 24 11:05:41 CEST 2017
 base.0=C\:\\programowanie\\android\\umik4\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_9e4065c02de6357c9bbe02da42ee635b442a40e9
 renamed.1=classes2.dex
 renamed.0=classes.dex

@@ -354,13 +354,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     ft.remove(prev);
                 }
                 ft.addToBackStack(null);
-                dialogChooseGas = new DialogChooseGas(new JobDoneCallback() {
-                    @Override
-                    public void jobDone() {
-                       // gasChanged();
-
-                    }
-                }, getBaseContext());
+                dialogChooseGas = new DialogChooseGas(getBaseContext());
                 dialogChooseGas.show(ft, "dialog");
 
                 break;
@@ -379,10 +373,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Log.d("lokacja", "resume");
 
     }
-public void gasChanged() {
-    dialogChooseGas.dismiss();
-}
-
     protected void onStop() {
         super.onStop();
         Log.d("lokacja", "stop");

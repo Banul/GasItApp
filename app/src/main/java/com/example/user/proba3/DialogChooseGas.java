@@ -27,12 +27,10 @@ public class DialogChooseGas extends DialogFragment {
 
     SharedPreferences sharedPreferences;
 
-    JobDoneCallback jobDoneCallback;
 
-    public DialogChooseGas(JobDoneCallback jobDoneCallback, Context context) {
+    public DialogChooseGas(Context context) {
 
         this.sharedPreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        this.jobDoneCallback = jobDoneCallback;
     }
 
     @Nullable
@@ -44,13 +42,6 @@ public class DialogChooseGas extends DialogFragment {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedID) {
                 onRadioButtonClicked(checkedID);
-            }
-        });
-        Button btnOK = (Button) v.findViewById(R.id.btnOK);
-        btnOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                jobDoneCallback.jobDone();
             }
         });
         return v;
@@ -77,5 +68,6 @@ public class DialogChooseGas extends DialogFragment {
                 break;
 
         }
+        dismiss();
     }
 }
