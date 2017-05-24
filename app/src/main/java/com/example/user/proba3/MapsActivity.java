@@ -538,6 +538,8 @@ downloadStations();
     }
 
     public void downloadStations() {
+        listaStacji.clear();
+        mMap.clear();
         DownloadRequestTask downloadRequestTask = new DownloadRequestTask(new RequestCallback<String>() {
             @Override
             public void updateFromResponse(String response) {
