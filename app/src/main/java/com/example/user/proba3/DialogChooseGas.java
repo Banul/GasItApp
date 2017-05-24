@@ -25,12 +25,12 @@ public class DialogChooseGas extends DialogFragment {
     public static final String MyPREFERENCES = "GasItAppPrefs";
     public static final String FUEL_CHOOSE = "fuelChoosePrefsKey";
 
-    SharedPreferences sharedPreferences;
+    MapsActivity mapsActivity;
 
 
-    public DialogChooseGas(SharedPreferences sharedPreferences) {
+    public DialogChooseGas(MapsActivity mapsActivity) {
 
-        this.sharedPreferences = sharedPreferences;
+        this.mapsActivity = mapsActivity;
     }
 
     @Nullable
@@ -48,26 +48,23 @@ public class DialogChooseGas extends DialogFragment {
     }
 
     public void onRadioButtonClicked(int checkedID) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        String fuel = null;
         switch (checkedID) {
             case R.id.rbPb95:
-
-                    editor.putString(FUEL_CHOOSE, "Pb95");
+                fuel = "Pb95";
                 break;
             case R.id.rbPb98:
-
-                    editor.putString(FUEL_CHOOSE, "Pb98");
+                fuel = "Pb98";
                 break;
             case R.id.rbON:
-
-                    editor.putString(FUEL_CHOOSE, "ON");
+                fuel = "ON";
                 break;
             case R.id.rbLPG:
-
-                    editor.putString(FUEL_CHOOSE, "LPG");
+                fuel = "LPG";
                 break;
 
         }
+        mapsActivity.changeFuelPreference(fuel);
         dismiss();
     }
 }

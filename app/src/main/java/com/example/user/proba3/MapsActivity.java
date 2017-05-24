@@ -19,6 +19,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -81,8 +82,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private KlasaSprawdzajacaCzyPokazacPrompt obj;
     private Marker melbourne;
     private DialogChooseGas dialogChooseGas;
-    private SharedPreferences.OnSharedPreferenceChangeListener sharedPreferenceChangeListener;
-    private SharedPreferences sharedPreferences;
 
     private boolean czyTrybSledzenia = true;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
@@ -96,32 +95,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         boolean enabled = service
                 .isProviderEnabled(LocationManager.GPS_PROVIDER);
 
-
-        // Zmiana preferencji paliwa
-        sharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if (key.equals("fuelChoosePrefsKey")) { // klucz preferencji opcji
-                    String fuel = sharedPreferences.getString(key, "Pb95");
-                    System.out.println(fuel);
-                }
-            }
-        };
-
-        sharedPreferences = getSharedPreferences("GASITAPP_PREFS", Context.MODE_PRIVATE);
-
-        // Zmiana preferencji paliwa
-        sharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if(key.equals("fuelChoosePrefsKey")) { // klucz preferencji opcji
-                    String fuel = sharedPreferences.getString(key, "Pb95");
-                    System.out.println(fuel);
-                }
-            }
-        };
-
-        sharedPreferences.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
 
         if (!enabled)
             showAlertWindow();
@@ -269,7 +242,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void fuelPreferencesChanged() {
-
+         /// todo
     }
 
     @Override
@@ -328,7 +301,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     ft.remove(prev);
                 }
                 ft.addToBackStack(null);
-                dialogChooseGas = new DialogChooseGas(sharedPreferences);
+                dialogChooseGas = new DialogChooseGas(this);
                 dialogChooseGas.show(ft, "dialog");
 
                 break;
@@ -504,6 +477,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        }
 
         return true;
+    }
+
+    public void changeFuelPreference(String fuel) {
+        System.out.println(fuel);
     }
 
 
