@@ -1,4 +1,4 @@
-package com.example.user.proba3.network;
+package com.example.user.proba3;
 
 import com.example.user.proba3.dataModel.Gas;
 import com.example.user.proba3.dataModel.GasStation;

@@ -28,7 +28,7 @@ public class DialogChooseGas extends DialogFragment {
     MapsActivity mapsActivity;
 
 
-    =
+
     public DialogChooseGas(MapsActivity mapsActivity) {
 
         this.mapsActivity = mapsActivity;

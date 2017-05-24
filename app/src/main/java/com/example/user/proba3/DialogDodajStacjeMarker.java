@@ -92,15 +92,12 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
 
 
                 String text = String.valueOf(tekst.getText());
-                Log.d("mesydz", text);
                 Double wartD = Double.parseDouble(text);
                 String wartoscS;
                 wartoscS = df.format(wartD);
                 wartoscS = wartoscS.replace(",", ".");
-                Log.d("mesydz1", wartoscS);
                 Double wartoscD = Double.parseDouble(wartoscS);
                 String wartoscDS = String.valueOf(wartoscD);
-                Log.d("mesydz2", wartoscDS);
                 Double mniejszeWartD = wartoscD - 0.01;
 
 

@@ -8,10 +8,10 @@
     <ImageView
         android:id="@+id/updateFuel"
         android:layout_width="match_parent"
-        android:layout_height="136dp"
+        android:layout_height="wrap_content"
         app:srcCompat="@drawable/pb95" />
 
-    <TextView
+    <EditText
         android:id="@+id/updatePrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,17 +39,17 @@
             android:id="@+id/updatePlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/plus"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            app:srcCompat="@drawable/plus" />
     </RelativeLayout>
 
     <Button
         android:id="@+id/updateOk"
         android:layout_width="match_parent"
-        android:layout_height="67dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0.52"
         android:text="OK"
         android:textSize="80sp" />
