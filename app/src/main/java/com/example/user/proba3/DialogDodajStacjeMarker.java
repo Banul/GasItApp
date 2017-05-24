@@ -243,9 +243,11 @@ public class DialogDodajStacjeMarker extends DialogFragment implements AdapterVi
         CustomListViewValuesArr.add(sched1);
         sched2.setText("PB98");
         CustomListViewValuesArr.add(sched2);
-        sched3.setText("ON ");
-        CustomListViewValuesArr.add(sched3);
-        sched4.setText("LPG ");
+
+            sched3.setText("ON");
+            CustomListViewValuesArr.add(sched3);
+            sched4.setText("LPG");
+
         CustomListViewValuesArr.add(sched4);
     }
 

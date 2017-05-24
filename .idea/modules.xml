@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/Umik2.iml" filepath="$PROJECT_DIR$/Umik2.iml" />
+>>>>>>> 5e3c738500a44e3259aa1120c9751996b5a308a0
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/umik4.iml" filepath="$PROJECT_DIR$/umik4.iml" />
     </modules>

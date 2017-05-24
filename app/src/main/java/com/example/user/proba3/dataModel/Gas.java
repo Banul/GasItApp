@@ -23,6 +23,7 @@ public class Gas {
     public double getPrice() {
         return price;
     }
+
     public static Gas parseJSON(JSONObject jsonObject) throws JSONException {
         String name = jsonObject.getString("name");
         double price = jsonObject.getDouble("price");
