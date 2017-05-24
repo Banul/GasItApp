@@ -10,6 +10,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -80,6 +81,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private KlasaSprawdzajacaCzyPokazacPrompt obj;
     private Marker melbourne;
     private DialogChooseGas dialogChooseGas;
+    private SharedPreferences.OnSharedPreferenceChangeListener sharedPreferenceChangeListener;
 
     private boolean czyTrybSledzenia = true;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
@@ -92,6 +94,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
         boolean enabled = service
                 .isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+
+        // Zmiana preferencji paliwa
+        sharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                if(key.equals("fuelChoosePrefsKey")) { // klucz preferencji opcji
+                    String fuel = sharedPreferences.getString(key, "Pb95");
+                    System.out.println(fuel);
+                }
+            }
+        };
 
 
         if (!enabled)
@@ -295,6 +309,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         //   tekst = (EditText) findViewById(R.id.editText);
         //   przycisk = (Button) findViewById(R.id.button2);
 
+
+    }
+
+    private void fuelPreferencesChanged() {
 
     }
 
