@@ -467,15 +467,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onMarkerClick(Marker marker) {
 
         Log.d("dupa123", "dupa123");
-//        if(!marker.isInfoWindowShown()) {
-//            melbourne.showInfoWindow();
-//            Log.d("isShownh","isShownh");
-//        }
-//        if(marker.isInfoWindowShown()) {
-//            melbourne.hideInfoWindow();
-//            Log.d("isHiden","isHiden");
-//
-//        }
 
         return true;
     }
@@ -483,13 +474,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void changeFuelPreference(String fuel)
 
     {
-
-        //lista = listaStacji -> w tej zmiennej mamy wszystkie pobrane stacje
-        //Stwórz tablicę gdzie są tylko te stacje z wybranym paliwem przez usera
-        // Posortuj tę tablicę względem ceny wybranego gazu
-        // Podziel tę tablicę na trzy części
-        // Dodaj dla każdej stacji marker o odpowiednim kolorze, bazując na tym w jakiej części znalazła sie stacja
-
         chosenFuel = fuel;
         ArrayList<GasStation> tablStacj = new ArrayList<>();
         for (GasStation element : listaStacji) {
@@ -501,14 +485,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     tablStacj.add(element);
                 }
 
-                System.out.println(fuel);
-                Log.d("fueeeel", fuel);
             }
-            Log.d("a", "b");
         }
-//teraz mamy interesującą nas tablicę stacji, trzeba ją posortować względem ceny na danej stacji
-// 1. Trzeba dla każdej z tych stacji wziąć konkretną cenę
-        // 2. Trzeba te ceny posortować
 
         Collections.sort(tablStacj, new GasStationComparator(fuel));
         if (tablStacj.size() != 0) {
@@ -548,29 +526,51 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     }
                 }
-                Log.d("a", "a");
             }
             mMap.clear();
             for (GasStation stacja : najmnniejszeCeny) {
 
-                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                ArrayList <Gas> g = stacja.zwrocListeGazow();
+                double price = g.get(ZwrocIndeksListy(stacja,fuel)).getPrice();
+                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).title(stacja.getOwner()).snippet(fuel+" "+price).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
 
             }
 
             for (GasStation stacja : srednieCeny) {
 
-                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+                ArrayList <Gas> g = stacja.zwrocListeGazow();
+                double price = g.get(ZwrocIndeksListy(stacja,fuel)).getPrice();
+                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).title(stacja.getOwner()).snippet(fuel+" "+price).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
             }
 
 
             for (GasStation stacja:wysokieCeny)
             {
-                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                ArrayList <Gas> g = stacja.zwrocListeGazow();
+                double price = g.get(ZwrocIndeksListy(stacja,fuel)).getPrice();
+                mMap.addMarker(new MarkerOptions().position(new LatLng(stacja.getLatitiude(),stacja.getLongitude())).title(stacja.getOwner()).snippet(fuel+" "+price).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
             }
         }
         else
             mMap.clear();
+
+    }
+
+    public int ZwrocIndeksListy(GasStation gs, String co) {
+        int zwroc=0;
+        ArrayList<Gas> listaGaz = new ArrayList<>();
+        listaGaz = gs.zwrocListeGazow();
+
+        for (int i = 0; i < listaGaz.size(); i++)
+        {
+            if (co.equals(listaGaz.get(i).getName().replace(" ", ""))) {
+                zwroc = i;
+                break;
+            }
+        }
+        return zwroc;
 
     }
 
