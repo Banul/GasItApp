@@ -124,8 +124,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mlocListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                downloadStations();
                 dialog.dismiss();
-                Log.d("locationChanged", "changed");
                 ObecnaLokacja = location;
 
 
@@ -224,18 +224,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Button mBut = (Button) findViewById(R.id.button2);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar2);
-        Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
+   //     Button pokazStacje = (Button) findViewById(R.id.PokazStacje);
 
-
+/*
         pokazStacje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                downloadStations();
+              //  downloadStations();
 
 
 
             }
-        });
+        });*/
 
 
         setSupportActionBar(mToolbar);
@@ -630,7 +630,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void downloadStations() {
 
         listaStacji.clear();
-        mMap.clear();
+     //   mMap.clear();
         DownloadRequestTask downloadRequestTask = new DownloadRequestTask(new RequestCallback<String>() {
             @Override
             public void updateFromResponse(String response) {
@@ -641,9 +641,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         listaStacji.add(gasStation);
 
                         //todo do usuniecia jak dobrze zrobimy automatyczne odswiezanie
-                        mMap.addMarker(new MarkerOptions().position(new LatLng(gasStation.getLatitiude(),gasStation.getLongitude())).title(gasStation.getOwner()));
+                      //  mMap.addMarker(new MarkerOptions().position(new LatLng(gasStation.getLatitiude(),gasStation.getLongitude())).title(gasStation.getOwner()));
 
                     }
+
+                    changeFuelPreference(chosenFuel);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
