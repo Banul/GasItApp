@@ -369,7 +369,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         @Override
                         public void onMapLongClick(LatLng latLng) {
 
-                            DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng, listaStacji, mMap);
+                            DialogDodajStacjeMarker dialog = new DialogDodajStacjeMarker(latLng, mMap);
                             dialog.show(getFragmentManager(), "my_dialog");
 
                             //              mMap.addMarker(new MarkerOptions().position(latLng));
