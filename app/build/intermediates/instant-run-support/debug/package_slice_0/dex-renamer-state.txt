@@ -1,4 +1,0 @@
-#Wed May 24 14:46:23 CEST 2017
-base.0=D\:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_0
-renamed.0=classes.dex
-file.0=D\:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_0\\classes.dex
