@@ -87,12 +87,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private DialogChooseGas dialogChooseGas;
 
     private boolean czyTrybSledzenia = true;
-    String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
+    String url;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        url = getString(R.string.api_url);
+
         Log.d("lokacja", "create");
         LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
         boolean enabled = service
