@@ -1,4 +1,4 @@
-#Tue May 23 12:34:50 CEST 2017
+#Wed May 24 12:10:05 CEST 2017
 file.2=C\:\\programowanie\\android\\umik4\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_bc02a00e8a1447b699cc9219995d1bc048e8529b\\classes.dex
 base.2=C\:\\programowanie\\android\\umik4\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_bc02a00e8a1447b699cc9219995d1bc048e8529b
 file.1=C\:\\programowanie\\android\\umik4\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_67a447dcca57df7f19ad11cfb5eaaf295501ab42\\classes.dex

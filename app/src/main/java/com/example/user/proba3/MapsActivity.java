@@ -82,6 +82,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Marker melbourne;
     private DialogChooseGas dialogChooseGas;
     private SharedPreferences.OnSharedPreferenceChangeListener sharedPreferenceChangeListener;
+    private SharedPreferences sharedPreferences;
 
     private boolean czyTrybSledzenia = true;
     String url = "https://script.google.com/macros/s/AKfycbwi_fjw8oLX5gYWuPmukORIFkV4S-hzJRqBlIFngtLCq7uE5j4/exec";
@@ -107,6 +108,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         };
 
+        sharedPreferences = getSharedPreferences("GASITAPP_PREFS", Context.MODE_PRIVATE);
+
+        // Zmiana preferencji paliwa
+        sharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                if(key.equals("fuelChoosePrefsKey")) { // klucz preferencji opcji
+                    String fuel = sharedPreferences.getString(key, "Pb95");
+                    System.out.println(fuel);
+                }
+            }
+        };
+
+        sharedPreferences.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
 
         if (!enabled)
             showAlertWindow();
@@ -313,7 +328,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     ft.remove(prev);
                 }
                 ft.addToBackStack(null);
-                dialogChooseGas = new DialogChooseGas(getBaseContext());
+                dialogChooseGas = new DialogChooseGas(sharedPreferences);
                 dialogChooseGas.show(ft, "dialog");
 
                 break;

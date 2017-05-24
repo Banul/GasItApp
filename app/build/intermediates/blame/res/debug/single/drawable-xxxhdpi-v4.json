@@ -68,12 +68,12 @@
         "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\programowanie\\android\\umik4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
-        "source": "C:\\Users\\jaroslaw\\.android\\build-cache\\e3864fcdd112e2bb17fa5d3210cc2e006f4e6ed2\\output\\res\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
         "merged": "D:\\Studia\\Semestr 6\\UMIK\\Umik 2\\Umik\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png",
         "source": "C:\\Users\\Marcin Jamroz\\.android\\build-cache\\4acf6a4bd5fbfa5711ee0596fd301e6e2aad61b3\\output\\res\\drawable-xxxhdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "C:\\programowanie\\android\\umik4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "C:\\Users\\jaroslaw\\.android\\build-cache\\e3864fcdd112e2bb17fa5d3210cc2e006f4e6ed2\\output\\res\\drawable-xxxhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "C:\\programowanie\\android\\umik4\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
