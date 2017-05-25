@@ -21,6 +21,15 @@ public class GasStation {
     // Lokalizacja
     private double latitide;
     private double longitude;
+    private boolean isShown = false;
+
+    public boolean isShown() {
+        return isShown;
+    }
+
+    public void setShown(boolean shown) {
+        isShown = shown;
+    }
 
     // Lista paliw oferowanych na stacji
     ArrayList<Gas> gasesArray;

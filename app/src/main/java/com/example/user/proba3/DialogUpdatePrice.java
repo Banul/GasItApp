@@ -74,9 +74,6 @@ public class DialogUpdatePrice extends DialogFragment {
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  double price = Double.parseDouble(edtTxtPrice.getText().toString());
-             //   price += 0.01;
-           //     edtTxtPrice.setText(Double.toString(price));
 
                 DecimalFormat df = new DecimalFormat("#.00");
 
@@ -100,9 +97,7 @@ public class DialogUpdatePrice extends DialogFragment {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // double price = Double.parseDouble(edtTxtPrice.getText().toString());
-               // price -= 0.01;
-               // edtTxtPrice.setText(Double.toString(price));
+
 
                 DecimalFormat df = new DecimalFormat("#.00");
 
@@ -177,9 +172,11 @@ public class DialogUpdatePrice extends DialogFragment {
     public double getCurrentPrice() {
 
         ArrayList<Gas> gases = gasStation.zwrocListeGazow();
-        for(Gas gas : gases) {
-            if(gas.getName().equals(fuelName))
-                return gas.getPrice();
+        if(gases != null) {
+            for (Gas gas : gases) {
+                if (gas.getName().equals(fuelName))
+                    return gas.getPrice();
+            }
         }
         return 0;
     }

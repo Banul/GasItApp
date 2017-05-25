@@ -7,21 +7,15 @@ package com.example.user.proba3;
 public class ItemData{
 
     String text;
-   // String image;
 
     public String getText(){
         return text;
     }
 
-//    public String getImage(){
-//        return image;
-//    }
+
 
     public void setText(String text) {
         this.text = text;
     }
 
-//    public void setImage(String image) {
-//        this.image = image;
-//    }
 }
